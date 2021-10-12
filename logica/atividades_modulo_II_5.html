@@ -1,0 +1,151 @@
+
+<canvas width="600" height="400"></canvas> <!--treino 1
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var raio = 10;
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+
+   }
+
+    function limpaTela() {
+    pincel.clearRect(0, 0, 600, 400);
+
+    }
+
+    function desenhaAlvo(x, y) {
+
+    desenhaCirculo(x, y, raio+20, 'red');
+    desenhaCirculo(x, y, raio+10, 'white');
+    desenhaCirculo(x, y, raio, 'red');
+
+    }
+
+    function sorteiaPosicao(maximo) {
+
+        return Math.floor(Math.random() * maximo);
+
+    }
+
+    function atualizaTela() {
+    limpaTela();
+    var xAleatorio = sorteiaPosicao(600);
+    var yAleatorio = sorteiaPosicao(400);
+    desenhaAlvo(xAleatorio, yAleatorio);
+    }
+
+    setInterval(atualizaTela, 1000);
+
+</script>
+-->
+
+
+
+
+
+
+
+
+
+
+
+<canvas width="600" height="400"></canvas> <!--treino 2-->
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var raio = 10;// criamos variavel raio recebe valor 10
+    var xAleatorio;// criamos variavel xAletorio
+    var yAleatorio;// criamos variavel yAleatorio
+
+    function desenhaCirculo(x, y, raio, cor) { // Criamos uma funcao/function chamada DESENHA CIRCULO, que desenha um circulo/esfera,e que recebe como parametro() X Y  raio cor
+
+        pincel.fillStyle = cor;// cor da bola/esfera blue/azul
+        pincel.beginPath();//aqui dizemos que começamos a desenhar algo,com o BEGINPATH q e usado para indicarmos um novo caminho do pincel
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);;// aqui passamos as "cordenadas"/parametros da bolinha/esfera,X=?,Y=?,RAIO=?,angulo inicial=0,agulo final=2 VEZES/* MATH.PI (ou seja  PI - 3,14)
+        pincel.fill();// aqui preenchemos a forma com a cor passada
+
+    }
+
+    function limpaTela() { // criamos uma function/funcao chamada LIMPA TELA,que limpa o que estava inserido anteriormente na tela tela usando CLEAR RECT
+
+        pincel.clearRect(0, 0, 600, 400);//CLEAR RECT/ pincel.clearRect(), usado para indicar  que ele deve limpar algo,no caso ele limpa/apaga o canvas inteiro,e passamos em seu parametro as cordenadas X 0 ,Y 0 (ou seja o começo do canvas) e 400x600( ou seja tamanho do canvas)
+
+    }
+
+    function desenhaAlvo(x,y) {// criamos a funçao DESENHA ALVO que recebe como parametro () X e Y,essa funçao chama outra funçao a DESENHA CIRCULO e realiza as açoes dela( ou seja desenha um circulo) e passamos tambem os valores dos parametros x, y, raio, e cor
+
+        desenhaCirculo(x, y, raio+20, 'red');// chamando DESENHA CIRCULO que desenha um circulo e passa em seu parametro os valores X=? Y=? raio+20 COR=RED
+        desenhaCirculo(x, y, raio+10, 'white');// chamando DESENHA CIRCULO que desenha um circulo e passa em seu parametro os valores X=? Y=? raio+10 COR=RED
+        desenhaCirculo(x, y, raio, 'red');// chamando DESENHA CIRCULO que desenha um circulo e passa em seu parametro os valores X=? Y=? raio=10 COR=RED
+//OBS:a variavel RAIO,foi declarada valendo 10,dentro da function/funçao inicializamos RAIO=10 e somamos/+ 20(ou seja passa a ser 30,RAIO=30)  depois RAIO=10 somamos/+10(ou seja passa a ser 20,RAIO=20) e por fim somente inicializamos RAIO=10 no seu valor normal sem somas
+// ISSO E FEITO PARA QUE DE A IMPRESSAO DE UMA BOLINHA "DENTRO" DA OUTRA,O RAIO NADA MAIS E QUE O TAMANHO DO "CIRCULO",entao o raio maior vem primeiro,ate chegar no menor(ou seja RAIO=30,RAIO=20,RAIO=10)
+    }
+
+    function sorteiaPosicao(maximo) {//criamos a function/funçao SORTEIA POSIÇAO e tem como parametro () maximo. Que tem como açao sortear posiçoes/numeros usando o return MATH.FLOOR, MATH.RANDOM()
+//OBS:o parametro "MAXIMO" quer dizer o maximo de 400,e o maximo de 600,porque esses valores sao correspondentes ao tamanho do canvas 400x600,(ou seja a ideia e sortear posicoes aleatorios com no maximo esssas dimensoes
+        return Math.floor(Math.random() * maximo);// aqui pedimos para funçao retornar/return,SORTEAR uma posiçao com o(math.random),e arrepondar essa posiçao com o Math.floor,OBS: Math.floor arredonda para BAIXO ou seja 11,59 para 11
+		//essa posicao sorteada e arredondada vai ser aleatoria de 0 400,de 0 a 600 , Ou seja, você terá um valor entre 0 e um valor um pouco menor que a tela.
+
+    }
+
+function atualizaTela() {// Criamos a function/funcao ATUALIZA TELA, ela vai receber as funçoes e suas açoes passadas anteriormente, variaveis etc sao elas:
+    limpaTela();//chamamos a funçao LIMPA TELA dentro da funçao ATUALIZA TELA.Sera executado toda açao que esta dentro da funçao limpa tela ou seja a limpesa de tela
+    xAleatorio = sorteiaPosicao(600);//varivel X ALETORIO recebe o retorno/return do parametro() da Function/funçao SORTEIA POSIÇAO EX: DE function sorteiaPosicao(maximo) PASSA A SER function sorteiaPosicao(600) 
+    yAleatorio = sorteiaPosicao(400);//varivel Y ALETORIO recebe o retorno/return do parametro() da Function/funçao SORTEIA POSIÇAO EX: DE function sorteiaPosicao(maximo) PASSA A SER function sorteiaPosicao(400)
+    desenhaAlvo(xAleatorio, yAleatorio);//chamamos a function/funçao DESENHA ALVO e passamos em seu parametro() os valores de X ALETORIO E Y ALEATORIO,valores esses SORTEADOS pela function/funçao SORTEIA POSIÇAO OBS::::OU SEJA VAI SORTEAR UMA POSIÇAO/NUMERO ALEATORIA,SERAO SORTEADOS VALORES DE X ALETORIO NO MAXIMO 600,E Y ALETORIO COM NO MAXIMO 400,OU SEJA OS VALORES/POSIÇOES SORTEADAS VAO SER DE X=600 PARA BAIXO E Y=400 PARA BAIXO
+}
+
+setInterval(atualizaTela, 1000);//aqui utilizaremos a função SETINTERVAL, ela tem como acao fazer com que algo seja exibido com intervalos de tempo(de tempos em tempos).
+ //Ela aceita receber em seu parâmetro,  funçãos que você deseje chamar de tempos em tempo no caso de 1 em 1 segundo,
+ //RESUMINDO SETINTERVAL RECEBE E EXECUTA A ACAO DA FUNÇAO ATUALIZA TELA DE 1 EM UM SEGUNDO.
+ 
+function dispara(evento) {// criamos a function/funcao DISPARA e ela rece um evento/acao que no caso desse codigo e um CLIQUE no CANVAS
+//NOVIDADE PAGE/pagina. PAGEX,PAGEY e usado para DESCOBRIR qual as CORDENADAS DO CLIQUE na PAGINA
+//NOVIDADE OFFSET/deslocamento. OFFSETLEFT,OFFSETTOP e usado para delimitar pedaços na tela,ele "TIRA"/"ESQUECE/IGNORA" 
+    var x = evento.pageX - tela.offsetLeft;// declaramos uma varivel X que recebe EVENTO.PAGEX(ou seja DESCOBRE e atribui o valor da cordenada X) e usamos o OFFSETLEFT para "tirar/esquecer/ignorar" a parte da tela que estiver FORA do canvas/telaou seja quaisquer acoes feitas so funcionem dentro o canvas
+    var y = evento.pageY - tela.offsetTop; // ou seja TODA A AÇÃO de clicar na tela a exibicao do alerta com as cordenadas de x e y SO SERA FEITA SE O CLIQUE FOR DENTRO DO CANVAS,FORA DO CANVAS ESSA AÇAO NAO SERA EXECUTADA DEVIDO AO OFFSET/deslocamento
+
+    if((x > xAleatorio - raio) // se X for MAIOR que XALETORIO e MENOR que RAIO
+    && (x < xAleatorio + raio)// se X for MENOR que XALEATORIO e MAIOR que RAIO
+	
+    && (y > yAleatorio - raio)// se Y for MAIOR que YALETORIO e MENOR que RAIO
+    && (y < yAleatorio + raio)) // se Y for MENOR que YALEATORIO e MAIOR que RAIO 
+	{
+
+        alert('Acertou!');// exibe um alerta com a frase de acerto
+
+//OBS: Para entender o IF da function/funcao DISPARA
+//As variáveis X e Y armazenam o ponto em que ocorreu o click do mouse.
+//A variável X armazena o local da cordenada X que ocorreu o click, e a variável Y o local da cordenada Y onde ocorreu o click.
+//Dentro do IF temos os condicionais:
+//Se o X estiver em um ponto/cordenada maior (>) do que o xAleatorio - raio e menor (<) do que xAleatorio + raio, isso que dizer que o x está dentro do raio, ou seja, o click foi dentro do alvo.
+
+
+
+
+    }
+
+
+}
+
+tela.onclick = dispara;////aqui a propriedade  ONCLICK que executa as acaoes da function/funcao DISPARA atraves de um clique na tela/canvas.
+
+</script> 

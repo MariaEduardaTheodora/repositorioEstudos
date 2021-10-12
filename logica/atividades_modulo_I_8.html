@@ -1,0 +1,69 @@
+<meta charset="UTF-8"> <!--1 treino-->
+<!--"ATENCAO A TAG INPUT E BUTON ESTAO SENDO CRIADAS NO MUNDO HTML!!!"-->
+<input/> <!--NOVIDADE AQUI TEMOS O INPUT/ENTRADA que faz com que seja aberto um campo para entrada de texto no navegador.OBS::essa tag nao precisa ser ABERTA -->
+<button>Compare com o meu segredo</button>  <!--NOVIDADE A TAG BOTTON/BOTAO CRIA UM BOTAO,Esta tag, como podemos observar, ABRE e FECHA, diferentemente da <INPUT>. Dentro da tag <button> inseriremos a frase "Compare com o meu segredo":-->
+
+<!--MUITO IMPORTANTE,a "FUNCAO" DOCUMENT.QUERYSELECTOR() DA DIREITO DO JAVASCRIPT INTERAGIR COM O QUE ESTA NO HTML,SO PRECISAMOS PASSAR NO SEU PARAMETRO (XXXXXX) QUAL E A TAG QUE QUEREMOS INTERAGIR,ISSO INCLUI CLICKS,FRASES QUALQUER ACAO QUE SEJA FEITA.-->
+
+<script>
+    var segredo = 5;
+<!--SABEMOS QUE O "MUNDO HTML" E ESTATICO OU SEJA,NAO TEM AÇAO NAO VOLTA VALORES E ETC,QUEM FAZ ISSO E O MUNDO JAVASCRIT, nossa intecao nesse codigo e a de acessar estas tags do mundo HTML a partir do mundo JavaScript. Para isso com isso ESSAS TAG DO HTML TEREM FUNCIONANLIDADES,GERAREM VALORES E DEIXAREM DE SER ESTATICAS---->
+    var inputHtml = document.querySelector("input");<!-- para isso criamos uma VARIAVEL INPUTHTML ela RECEBERA A FUNÇAO DOCUMENT.QUERYSELECTOR() Utilizaremos ela para inserir aquilo(no caso o INPUT/ENTRADA) que está no mundo HTML na variável INPUTHTML(varaiavel que esta no javascript). Essa FUNÇAO receberá como parâmetro ()o nome da tag que desejamos utilizar: NO CASO JA SABEMOS QUE  E A TAG INPUNIT (HTML). Resumindo a variavel do javascript inpunithtml passa a receber/guardar/obter o que for inserido la na tag inpunit do html  -->
+
+    function verifica() {<!--aqui e criado um FUNCTION chamada verfica,ela tem como parametro/acao IF/SE input.value for IGUAL== a variavel Segredo(variavel vale 5),mostre um alerta com um frase,caso contrario ou seja ELSE/SE NAO mostre um alerta com outra frase-->
+
+        if(input.value == segredo) {<!--if/se-->
+
+        alert("Você ACERTOU!");<!--mostre alerta e frase de acerto-->
+        } else {<!--else/se nao-->
+
+        alert("Você ERROU!!!!!!!!");<!-- mostre um alerta com frase de erro-->
+        }
+
+    }
+<!-- OBSERVAÇAO a intençao e que a FUNÇAO VERIFICA() seja chamada sempre que o BOTAO FOR CLICADO,ou seja para que haja uma VERIFICACAO se o usuario ACERTOU/IF/TRUE ou ERROU/ELSE/FALSE. Para isso, precisaremos trabalhar com o <button> do HTML no JavaScript.(basicamente faremos parecido com o que fizemos acima com o INPUT),ou seja queremos associar a função verifica()do javascript ao clique do botão do html.
+    var buttonHtml = document.querySelector("button"); <!-- aqui criamos uma variavel BUTTONHTML e ela RECEBERA a FUNÇAO DOCUMENT,QUERYSELECTOR() e inserimos dentro dela o BUTTON do html-->
+
+    button.onclick = verifica; <!--aqui estamos associado o BUTTON a execução da FUNCAO VERIFICA() e seus parametros.Para isso utilizaremos o BUTTON.ONCLICK()/AO CLICAR que tem como funçao capturar um "click" ou seja resumindo, queremos que a verificação seja feita ao clicar no botton/botao.
+<!-- A FUNCTION NESSES CASOS DE INTERAÇAO DE HTML E JAVASCRIPT VEM CHAMADA ASSIM EX:::: VERIFICA, E NAO VERFICA()-->
+</script>
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!--2 DESAFIO-->
+<!--AQUI E O MESMO CODIGO POREM COM OUTRAS FUNCIONALIDADES/NOVIDADES-->
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+    var segredo = Math.round(Math.random() * 10); <!--aqui faremos com que ele seja mutável, utilizando o Math.random() e o Math.round() ao contrario do primeiro codigo ja que aqui " sorteamos" um numero/valor-->
+
+    var input = document.querySelector("input");
+        input.focus(); <!--  aqui usaremos uma funçao FOCUS,para dar um "foco"luzes na borda do campo de texto,isso sempre que o usuario recarregar a pagina utilizando a função input.focus()--> -->
+
+    function verifica() {
+
+        if(input.value == segredo) {
+
+        alert("Você ACERTOU!");
+        } else {
+
+        alert("Você ERROU!!!!!!!!");
+        }
+
+                input.value = ""; <!-- aqui fazermos com que o campo de texto seja esvaziado quando o usuário errar uma tentativa. Para isso, após a função verifica(), declararemos que o input.value receberá uma string em branco "  " -->
+                input.focus(); <!--aqui NOVAMENTE usaremos uma funçao chamada FOCUS,daremos um "foco" luzes na borda do campo de texto sempre que o usuário errar o número utilizando a função input.focus()-->
+
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>

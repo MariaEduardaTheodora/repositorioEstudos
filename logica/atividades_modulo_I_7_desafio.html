@@ -1,0 +1,171 @@
+
+ <meta charset="UTF-8"><!-- 1 DESAFIO-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var contador = 2;
+    while(contador <= 100) {
+        mostra(contador);
+        contador = contador + 2;
+    }
+    mostra("FIM");	
+</script>
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- 2 DESAFIO-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var contador = 30;
+
+    while(contador <= 40) {
+
+        if( contador == 33 ) {
+        contador = contador + 1;
+        }
+        if(contador == 37) {    
+            contador = contador + 1;
+        }
+        else {
+        mostra(contador);
+        contador = contador + 1; 
+        }
+      }
+
+    mostra("FIM");
+
+</script>
+
+
+
+
+
+
+
+<meta charset="UTF-8"><!-- 3 DESAFIO---->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var anoCopa = 1930;
+    var limite = parseInt(prompt("Qual é o ano limite?"));
+
+    while(anoCopa <= limite) {
+
+        mostra(anoCopa + " tem copa!");
+    
+
+    anoCopa = anoCopa + 4;
+}
+    mostra("Ufa! Esses foram os anos de copa até " + limite);
+</script>
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!--4 DESAFIO-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+   var contador= 20;
+   while(contador >= 0) {
+   mostra(contador);
+    contador = contador - 1; 
+
+ }
+ mostra("FIM");
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"><!--5 DESAFIO-->
+<script>
+    var loginCadastrado = "alura";
+    var senhaCadastrada = "alura321";
+
+    var maximoTentativas = 3;<!-- variavel recebe o MAXIMO de tentativas aceitas-->
+    var tentativaAtual = 1;<!--variavel que recebe a tentativa atual-->
+
+    while(tentativaAtual <= maximoTentativas) {<!--ENQUANTO TENTATIVAATUAL FOR MENOR OU IGUAL A MAXIMOTENTATIVAS(3) MOSTRE PRONTS PEDINDO AO USUARIO QUE INSIRA ALGO,NO CASO LOGGIN E SENHAINFORMADA-->
+
+        var loginInformado = prompt("Informe seu login");<!--variavel LOGININFORMADO recebe o PRONT mostra uma frase e RECEBE algo do usuario-->
+        var senhaInformada = prompt("Informe sua senha"); <!--variavel SENHAINFORMADA recebe o PRONT mostra uma frase e RECEBE algo do usuario-->
+
+        if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) {<!--Aqui temos o IF/SE comum,a DIFERENÇA e que colocamos todos os PARAMETROS na MESMA LINHA -->
+
+            alert("Bem-vindo ao sistema, " + loginInformado);<!-- um alerta na tela que exibe frase e CONCATENA com LOGININFORMADO OBS:(DADO PELO USURIO ATRAVES DO PRONT)-->
+
+            tentativaAtual = maximoTentativas; <!-- variavel TENTATIVAATUAL RECEBE=  MAXIMOTENTATIVAS-->
+
+        } else { <!--SE NAO-->
+
+            if (tentativaAtual == 3) {<!--SE variavel TENTATIVAATUAL FOR IGUAL == A 3,MOSTRE UM ALERTA DIZENDO QUE O NUMERO DE TENTATIVAS FOI ULTRAPASSADO ->
+                alert("Número permitido de tentativas ultrapassado!");<!--alert com frase -->
+            } else {<!--SE NAO-->
+                alert("Login inválido. Tente novamente");<!--mostre um alerta dizendo que o loggin esta invalido-->
+            }
+        }
+
+       // vai para a próxima tentativa
+        tentativaAtual = tentativaAtual +1  <!--AQUI VARIAVEL TENTATIVA RECEBE MAIS 1,OU SEJA PASSA A SER DOIS E ASSIM POR DINATE VAI SE REPETIR O LAÇO,ATE ATINGIR O NUMERO MAXIMO DE TENTATIVAS(3) CONFORME FOI PASSADO-->
+    }
+</script>
+
+
+
+
+
+
+
+
+

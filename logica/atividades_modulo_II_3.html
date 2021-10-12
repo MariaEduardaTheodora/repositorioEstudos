@@ -1,0 +1,101 @@
+
+<canvas width="600"  height="400"></canvas><!--treino 1-->
+
+<script> 
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function exibeAlerta(evento) {// criada FUNÇAO/FUNCTION chamada EXIBE ALERTA recebe como parametro um evento/acao, e exibe um alerta com frase na tela
+
+        alert('Cliquei');//alerta que exibe frase
+        console.log(evento);// propriedade usada para mostrar algo no console que nao e visto a olho "nu" na tela/navegador,aqui ele e usado com intençao de saber em qual parte da tela aconteceu o clique
+
+    }
+
+    tela.onclick = exibeAlerta;//NOVIDADE ONCLICK  o javaScript nos permite trabalhar com eventos/acoes. aqui temos a propriedade ONCLICK, tudo que atribuirmos a essa propriedade onclick e executado apos um CLIQUE na tela/canvas
+	//aqui utribuimos a propriedade  ONCLICK na function/funcao EXIBE ALERTA ,essa funçao passa a ser CHAMADA e executada atraves de um clique na tela/canvas.
+
+</script>
+
+
+
+
+
+
+
+
+
+<canvas width="600"  height="400"></canvas><!--treino 2-->
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d'); 
+	
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+     function exibeAlerta(evento) { // criada a function/funçao chamada EXBEALERTA ,e recebe em seu parametro um evento/reaçao e capita onde estao as localizaçao das cordenadas X e Y quando clicamos em qualquer espaço da tela/canvas e por nos mostra quais sao essas cordenadas pelo alert
+	 
+ 	//NOVIDADE PAGE/pagina. PAGEX,PAGEY e usado para DESCOBRIR qual as CORDENADAS DO CLIQUE na PAGINA
+	//NOVIDADE OFFSET/deslocamento. OFFSETLEFT,OFFSETTOP e usado para delimitar pedaços na tela,ele "TIRA"/"ESQUECE/IGNORA" 
+	
+    var x = evento.pageX - tela.offsetLeft; // declaramos uma varivel X que recebe EVENTO.PAGEX(ou seja DESCOBRE e atribui o valor da cordenada X) e usamos o OFFSETLEFT para "tirar/esquecer/ignorar" a parte da tela que estiver FORA do canvas/telaou seja quaisquer acoes feitas so funcionem dentro o canvas
+    var y = evento.pageY - tela.offsetTop; // ou seja TODA A AÇÃO de clicar na tela a exibicao do alerta com as cordenadas de x e y SO SERA FEITA SE O CLIQUE FOR DENTRO DO CANVAS,FORA DO CANVAS ESSA AÇAO NAO SERA EXECUTADA DEVIDO AO OFFSET/deslocamento
+	  alert("posição do clique foi  : " + x + ", " + y);// exibimos um aleta na tela mostrando ao usuario os VALORES DAS CORDENADAS X E Y "DESCUBERTAS"
+}
+
+//O javaScript nos permite trabalhar com eventos. No caso, utilizaremos a propriedade ONCLICK, tudo que atribuirmos a essa propriedade onclick e executado apos um CLIQUE na tela/canvas
+   tela.onclick=exibeAlerta //aqui atribuimos a propriedade  ONCLICK na function/funcao EXIBE ALERTA ,essa funçao passa a ser CHAMADA e executada atraves de um clique na tela/canvas.
+   
+   </script>
+   
+   
+   
+   
+   
+   
+   
+  
+  
+   <canvas width="600"  height="400"></canvas> <!--treino 3-->
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d'); 
+	
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+     function desenhaCirculo(evento) { //criamos a FUNCTION/FUNCAO chamada DESENHA CIRCULO que recebe como parametro () um evento/acao e cria uma bolinha a cada clique na tela
+ 	
+	
+	 
+ 	//PAGE/pagina. PAGEX,PAGEY e usado para DESCOBRIR qual as CORDENADAS DO CLIQUE na PAGINA
+	//OFFSET/deslocamento. OFFSETLEFT,OFFSETTOP e usado para delimitar pedaços na tela,ele "TIRA"/"ESQUECE/IGNORA" 
+    var x = evento.pageX - tela.offsetLeft; // OU SEJA X "DESCOBRE" a localizacao da cordenada X,DENTRO do canvas
+    var y = evento.pageY - tela.offsetTop;// OU SEJA Y "DESCOBRE" a localizacao da cordenada X,DENTRO do canvas
+	
+    pincel.fillStyle="blue";// cor que sera a esfera
+    pincel.beginPath();// aqui temos BEGINPATH novamente para indicarmos um novo caminho do pincel OBS:Temos de iniciar um novo caminho, caso contrário, o programa entenderá que deve continuar o caminho anterior.
+    pincel.arc(x, y, 10, 0, 2*3.14);//aqui temos o ARC/ARCO essa função e para traçarmos uma esfera esfera. Nela, incluiremos as seguintes informações:Posicionamento da esfera, que definiremos como 0 (X) e 0 (Y);Tamanho, ou seja, o raio - que definiremos como 10;//O ângulo inicial 0, e o ângulo final 2, em radianos (multiplicado por PI - 3,14);
+    pincel.fill();  // aqui preenchemos  a forma,no caso a esfera com a cor passada no FILLSTYLE 
+	console.log("posição do clique : " + x + ", " + y);// propriedade usada para mostrar algo no console que nao e visto a olho "nu" na tela/navegador,aqui ele e usado com intençao de saber em qual parte da tela aconteceu o clique
+}
+
+   tela.onclick=desenhaCirculo////aqui atribuimos a propriedade  ONCLICK na function/funcao DESENHA CIRCULO ,essa funçao passa a ser CHAMADA e executada atraves de um clique na tela/canvas.
+   //OU SEJA PASSA A DESENHAR UM CIRCULO/ESFERA NA TELA TODA VEZ QUE A TELA RECEBER UM CLIQUE
+   
+   </script>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  

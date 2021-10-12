@@ -1,0 +1,240 @@
+<meta charset="UTF-8"><!-- treino 1-->
+<script>
+var ano = 2016;
+var puloLinha = "<br><br><br><br><br><br><br><br><br>"; <!-- observe aqui uma NOVIDADE, ao inves de usar a tag document.write("<br>") para pular linhas, eu posso simplismente declara-la na variavel,e quando for istanciar o valor dela eu coloco a quantidade <br> que for necessario ao meu gosto,seja <br>,<br><br>,<br><br><br><br> e etc...OBS:Nesse exemplo temos 10 <br> ou seja 10 linhas puladas-->
+document.write("Flávio tem " + (ano - 1977) + " anos");
+document.write(puloLinha);
+document.write("Joaquim tem " + (ano - 1996) + " anos");
+document.write(puloLinha);
+ano = 2017;
+document.write("Barney tem " + (ano - 1976) + " anos");
+document.write(puloLinha);
+
+</script>
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 2-->
+<script>  <!--observe aqui outra NOVIDADE, ao inves de declaramos pulos de linha <br> em variavel,podemos simplismente criar uma FUNCTION que nada mais e que criar nossas próprias funções para deixar nosso codigo mais legível e de facil manutençao.Assim como temos o document.write que tem como funcao escrever na tela,o alert que tem como funcao mostrar um pupup, e o <br> que pula linha temos o FUNCTIONON, a diferença e que nos ditamos o que ele faz,qual sua funcionalidade,nome e etc.. -->
+        function pulaLinha() {  <!-- aqui abrimos a function e demos a ela o nome pularLinha-->
+        document.write("<br>"); <!-- aqui dizemos o que essa funtion pulaLinha faz,que no caso e pular linha usando o document.write("<br>") -->
+        document.write("<br>"); <!-- aqui mostramos que mais de uma acao pode ser inserida na function,e aqui ainda demos um exemplo de como referenciar para ser pulado duas linhas,mas tambem podemos seguir a mesma ideia do treino 1,referenciando quantos <br> for necessario em uma so linha ex:<br><br><br>-->
+          }<!-- OBS: nao se esqueça dos () e {}. E mais,o function so e executado quando chamado, que e o caso da linha 28 marcada com amarelo,fora isso ele fica bem quetinho no começo do nosso codigo-->
+
+var ano = 2016;
+document.write("Flávio tem " + (ano - 1977) + " anos");
+pulaLinha();<!-- aqui estamos chamando a function pulaLinha,ou seja aqui vai ser pulado uma linha,no caso desse exemplo 2 linhas,e o mesmo acontece todas as vezes que essa function e chamada-->
+document.write("Joaquim tem " + (ano - 1996) + " anos");
+pulaLinha();
+ano = 2017;
+document.write("Barney tem " + (ano - 1976) + " anos");
+document.write("<br>");
+
+</script>
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 3-->
+<script>
+document.write("<br>");<!--OBS:APESAR DE AGORA HAVER UMA OUTRA FORMA DE SALTAR LINHA,O DOCUMENT.WRITE AINDA SERA USADO QUANDO NECESSARIO POR ORGANIZACAO QUANDO O CODIGO RODA NO NAVEGADOR---->
+document.write("<br>");
+    function pulaLinha() { 
+        document.write("<br>");
+        document.write("<br>");
+}
+    function mostra(frase){ <!--aqui o FUNCTION ja vem diferente,pois passa PARAMETROS,Observe o que vem dentro da () isso se um PARAMETRO,nesse caso e uma frase-->
+       document.write(frase);<!--aqui como ja sabemos, e onde dizemos o que essa FUNCTION faz,que nesse caso e imprimir uma frase-->
+	   pulaLinha();<!-- aqui e so um exemplo de que podemos chamar uma FUNCTION dentro de outra FUNCTION,nesse caso chamamos o pularLinha dentro do mostra,ou seja toda vez que a FUNCTION mostra for chamada ela vai ler e pular linha-->
+}
+var ano = 2016;
+mostra("Flávio tem " + (ano - 1977) + " anos");
+mostra("Joaquim tem " + (ano - 1996) + " anos");
+ano = 2017;
+mostra("Barney tem " + (ano - 1976) + " anos");
+
+</script>
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 4-->
+<script>
+    function fazPegadinha() {
+        alert("Olá");
+        alert("amiga!");
+        alert("Tá");
+        alert("bastante");
+        alert("entediada?");
+        alert("Em ficar");
+        alert("Clicando em");
+        alert("Ok");
+        alert("né?");
+    }
+	//fazPegadinha();
+	
+</script>
+
+
+
+
+
+
+
+<meta charset="UTF-8">  <!-- treino 5-->
+<script>
+    function pulaLinha() {
+
+        document.write("<br>"); <!--vemos aqui uma forma de pular linhas,nesse caso referenciamos <br> tres vezes em uma linha abaixo da outra-->
+		document.write("<br>");
+		document.write("<br>");
+       document.write("<br><br>")<!--  aqui vemos outra forma tbm de saltar linhas,referencianado os <br> um ao lado do outro-->
+    }
+
+var titulo = "Bem-vindo ao meu programa!";
+document.write("<h1>" + titulo + "</h1>");
+	
+     pulaLinha();<!-- aqui chamamos a funcao ou FUNCTION,ou seja aqui esta sendo executado a pula de linha-->
+document.write("Vocês não sabem o que tive que aprender para fazer isso!");
+
+      pulaLinha();
+document.write("Contudo, assistindo os vídeos e estudando ...");
+
+    pulaLinha();
+document.write("Eu vou mais longe!");
+</script>
+
+
+
+
+
+
+
+
+<meta charset="UTF-8">  <!-- treino 6-->
+<script>
+document.write("<br>");
+document.write("<br>");
+    function pulaLinha() {
+        document.write("<br>");
+    }
+    function exibeTitulo(titulo) {<!-- aqui vemos uma nova function que e a exibeTitulo,e no seu PARAMETRO vem a palavra titulo,ou seja essa funcao tem como dever exibir um titulo-->
+        document.write("<h1>" + titulo + "</h1>"); <!-- a tag <h1> nesse contexto serve para informa que assim que a funçao titulo for chamada para atuar,ela alem de exibir o titulo vai dexa-lo grande e em destaque,a tag ou seja mostra COMO vai ser esse processo<h1> e feita para isso-->
+        pulaLinha();
+    }
+    function exibeTexto(texto) {<!-- aqui temos outra function nessa se exibe um texto,OBSERVE como e facil entender o que vai ser feito so pelo nome da funcao/function e pelo seu PARAMETRO ou seja sua acao-->
+        document.write("<p>" + texto + "</p>");<!-- essa tag <p>serve para escrever, aqui so estamos mostrando COMO que o texo sera escrito,como vai ser esse processo-->
+        pulaLinha();
+    }
+     exibeTitulo("Bem-vindos");
+    exibeTexto("Este é um simples programa");
+</script>
+
+
+
+
+
+
+<meta charset="UTF-8">  <!-- treino 7-->
+<script>
+ document.write("<br>");
+ document.write("<br>");
+ 
+    function pulaLinha() {
+        document.write("<br>");
+    }
+    function mostra(frase) {
+        document.write(frase);
+    }
+var minhaIdade = 18;
+var idadeIrmao = 15;
+    mostra("Nossa diferença de idade é " + (minhaIdade - idadeIrmao));<!-- aqui e feito uma conta quando a function mostra e chamada,ela alem de mostrar o texto dado a ela vai fazer essa conta-->
+    pulaLinha();
+</script>
+</script>
+
+
+
+
+
+ <meta charset="UTF-8"> <!-- treino 8-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+        document.write("<br>");
+    }
+	function mostra(frase) {
+        document.write(frase);
+    }
+  var idadeMediaQuandoTemFilhos= 28;
+  var anoAtual = 2021; 
+  var quantidadeDeGeracoes = (anoAtual - 1500) / idadeMediaQuandoTemFilhos; <!-- aqui estamos calculando  na varievel o nosso ano -1500 para sabermos quantos anos ja se passaram desde 1500,e dividimos pela idade media que as pessoas costumam ter filhos que no caso e 28 anos,o intuito daqui e saber a quantidade de geracoes que temos atualmente---->
+  mostra(quantidadeDeGeracoes);
+    </script>
+
+
+
+
+
+
+
+<meta charset="UTF-8"><!-- treino 9-->
+<script>
+document.write("<br>")
+document.write("<br>")
+document.write("<br>")
+
+function pulaLinha() {
+    document.write("<br> <hr> <br>");<!-- aqui experimentamos algo diferente,alem de se estar pulando linhas entre uma linha pulada e outra colocamos a tag <hr> que serve para LITERALMENTE colocar uma linha de forma visual-->
+}
+
+function mostra(frase) {
+    document.write("<big>" + frase + "</big>" );<!-- aqui mostramos que alem de imprimir uma frase essa function deixa o texto grande usando a tag <big>-->
+    pulaLinha();
+}
+
+var ano = 2019;
+mostra("Eu nasci em : " + (ano - 25));
+mostra("Adriano nasceu em : " + (ano - 26));
+mostra("Paulo nasceu em : " + (ano - 32));
+
+</script>
+
+
+
+
+ <!--
+ CONSIDERACOES IMPORTANTES,NESSE MODULO APRENDEMOS FUNCAOES,E UM POUCO COMPLEXO ENTAO VALE A PENA REVISAR
+ 
+ 
+******FUNCTION NO GERAL***** E um conjunto de instrucoes que servem para executar uma tarefa,ela so e acionada quando chamada em qualquer momento do codigo.
+para ficar claro que estavamos fazendo usamos o document.write( ele serve pra escrever,fazer contas,ou seja imprimir algo na tela), e "trocamos" o document.write pela funcao
+mostra() que faz a mesma coisa (  serve pra escrever,fazer contas,ou seja imprimir algo na tela) . Ou seja substituimos um pelo outro porem por debaixo dos panos o que fizemos foi
+colocar o document.write dentro da funcao mostra(),a difereça e que ao inves de colocarmos document.wider na tela sempre que quizermos imprirmir alo na tela,escrever e tal
+passamos a colocar somente o mostra(),fica mais facil de entender,pois sabemos que mostra() vai mostrar alguma coisa,diferente de escrever document.write
+
+
+******PARAMETRO***** E o que esta (),tudo que esta ali e a instruncao, e o que se  feito,o que deve se feito 
+
+
+
+*********VEJA**********          Function mostra->**aqui esta o nome da funcao (frase) {-> **aqui oque ela mostra/imprime na tela 
+
+                                 document.write("<big>" + frase + "</big>") -> aqui esta como ela faz isso,as instruncoes
+!-->								 
+
+
+
+
+
+
+
+
+

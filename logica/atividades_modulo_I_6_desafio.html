@@ -1,0 +1,92 @@
+<meta charset="UTF-8"> <!-- feito por mim-->
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+    
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+	  function sorteia(numeroPensado) { <!-- criei uma function e chamei ela de SORTEIA para ficar mais facil viasualmente,dentro dela usei o MATH.RANDOM(e ele que sorteia)-->
+
+        return Math.round(Math.random() * 10);<!-- eu defini ja na  function as casas decimais que quero pular ou seja multiplicando o MATH.RADOM por 100, e ja arredondando o numero com o MATCH.ROUND-->
+    }
+
+
+    var numeroPensado = sorteia(numeroPensado);
+    console.log(numeroPensado);
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+
+    if(chute == numeroPensado) {<!-- Esses IF e ELSE minha logica quase esta certa,porem da "error" quando acerto o numero,aparece duas frases,uma dizendo que acertei e a outra que errei ,para consertar isso teria que usar um ELSE/SENAO apos o primero IF/SE, e so fechar a chave } de ELSE/SE NAO no fim da condicao,colocando um if e else dentro de um else "pai/subliminar" VEJA ABAIXO.-->
+
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+	}
+	
+	else{<!-- ELE ENTRA AQUI-->
+	
+	
+	if(chute > numeroPensado) {
+
+        mostra("Você errou, pois eu pensei em um numero MAIOR,que era o:  " + numeroPensado);
+	}
+		
+    else {
+
+        mostra("Você errou! Eu tinha pensado em um numero MENOR que era:" + numeroPensado);
+    }
+	} <!-- E ACABA AQUI-->
+	
+</script>
+
+
+
+
+
+
+
+<meta charset="UTF-8"><!-- feito pelo professor-->
+<script>
+document.write("<br>")
+document.write("<br>")
+
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia(n) {<!-- aqui o professor ja deixa claro que a function sorteia vai receber em seu parametro N,ainda nao sabemos quem e N mas logo esse valor sera atribuido-->
+
+        return Math.round(Math.random() * n);<!-- o professor faz o mesmo que eu porem nao digita por quanto o MATH.RANDOM vai ser multiplicado,apenas digita a variavel N,que sera atribuida a um valor na proxima linha -->
+    }    
+
+    var numeroPensado = sorteia(10);<!-- aqui o  professor defini o valor de N para ai sim acontecer a conta que ira pular as casas e arredondar o numero de N-->
+
+
+     var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+
+    if(chute == numeroPensado) {
+
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+    } else {
+
+        if(chute > numeroPensado) {
+
+            mostra("Você errou! Seu chute é maior que o número pensado!");
+
+        } else {
+
+            mostra("Você errou! Seu chute é menor que o número pensado!");
+        }
+
+    }
+</script>

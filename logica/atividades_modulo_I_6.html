@@ -1,0 +1,163 @@
+<meta charset="UTF-8"><!-- treino 1-->
+<script>
+function pulaLinha() {
+
+    document.write("<br>");
+    document.write("<br>");
+}
+
+function mostra(frase) {
+
+    document.write(frase);
+    pulaLinha();
+}
+var vitorias = prompt("Entre com o número de vitórias.");<!-- O PRONT sempre retorna/guarda/armazena como texto, não como número,isso significa que ao inves de fazer a soma que esse programa pede ele acaba CONCATENANDO. resumindo ele guarda tudo assim " "  E oque isso sinigifica?ASPAS SIGINIFICAM QUE O QUE ESTA DENTRO DELA SAO PALAVRAS/FRASES ETC -->
+
+var empates = prompt("Entre com o número de empates.");
+
+var pontos = vitorias  * 3 + empates; <!-- aqui vai da "error" por conta do PRONT,pois ele vai concatenar e nao fazer essa conta,na verdade ele ate consegue fazer a VARIAVEL VITORIAS vezes 3 e colher o resultado, porem quando vai continuar a conta e pegar esse o resultado colido e o somar com a variavel empates vai acontecer a concatenacao -->
+mostra("Os pontos do seu time são " + pontos);<!-- Ou seja aqui vai ficar assim ex::: VITORIAS10 * 3 = 30,30 + EMPATES2 = "30"2 OBS:OBSEREVE AS "" COLOQUEI PARA FICAR MAIS LEGIVEL AQUE ALI OCORRE UMA CONCATENAÇAO PORQUE COMO JA SABEMOS TUDO ENTRE "" E TEXTO-->
+</script>
+
+
+
+
+
+
+<meta charset="UTF-8"><!-- treino 2-->
+<script>
+document.write("<br>") <!-- O DOCUMENT.WRITE ESTA SENDO USADO AQUI SOMENTE PARA SEPARAR UM CODIGO DO OUTRO PARA FICAR VISUALMENTE MAIS FACIL DE ENTENDER-->
+document.write("<br>")
+function pulaLinha() {
+
+    document.write("<br>");
+    document.write("<br>");
+}
+
+function mostra(frase) {
+
+    document.write(frase);
+    pulaLinha();
+}
+
+var vitorias = parseInt(prompt("Entre com o número de vitórias."));<!-- NOVIDADE,aqui temos o PERSEINT,ele faz com que o PRONT CONSIGA LER UM NUMERO,ele diz ao pront aqui vai ser digitado um numero nao uma palavra-->
+
+var empates = parseInt(prompt("Entre com o número de empates."));
+
+var pontos = (vitorias * 3) + empates;<!-- aqui vemos o codigo funcionando "certo" pois agora e possivel fazer a conta ex:::VITORIAS10 * 3 = 30,30 + EMPATES2 = 32 OBS:OBSEREVE AS "" JA NAO EXISTEM PORQUE AQUI NAO OCORRE MAIS UMA CONCATENAÇAO E SIM UMA SOMA PORQUE SO A NUMEROS E NAO PALAVRAS-->  -->
+
+mostra("Os pontos do seu time são " + pontos);
+</script>
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 3-->
+<script>
+document.write("<br>")
+document.write("<br>")
+function pulaLinha() {
+
+    document.write("<br>");
+    document.write("<br>");
+}
+
+function mostra(frase) {
+
+    document.write(frase);
+    pulaLinha();
+}
+
+var vitorias = parseInt(prompt("Entre com o número de vitórias."));
+
+var empates = parseInt(prompt("Entre com o número de empates."));
+
+var pontos = (vitorias * 3) + empates;
+
+mostra("Os pontos do seu time são " + pontos);
+
+if (pontos > 28){<!-- NOVIDADE aqui temos o IF/SE que e uma CONDIÇAO,aqui por exemplo e perguntado SE A VARIAVEL PONTOS( variavel essa que o usuario vai dar) E MAIOR QUE 28. Se caso for VERDADEIRO essa CONDICAO faça o que se "pede", OBS: O que se "pede" e o que esta dentro das chaves {}. No caso do nosso programa o que se "pede" esta relacionado a como o time se encontra ,vejamos abaixo:-->
+   mostra("Seu time está melhor do que no ano passado.");<!-- caso condicao PONTOS MAIOR QUE 28 verdadeira mostra isso-->
+   }
+if (pontos < 28){
+   mostra("Seu time está pior do que no ano passado.");<!-- caso condicao PONTOS MENOR QUE 28 verdadeira mostra isso-->
+   }
+if (pontos == 28){
+   mostra("Seu time está igual ao ano passado.");<!-- caso condicao PONTOS IGUAL A 28 verdadeira mostra isso-->
+   }
+   mostra("FIM");<!-- aqui e so um LEMBRETE que quer dizer que fora das condiçoes passadas podemos escrever algo, ou seja fora do IF e de suas chaves{{ .que vai ser escrito independente de qualquer condiçao porque ele esta fora das condiçoes,ou seja fora do if e das chaves-->
+</script>
+
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 4-->
+
+<script>
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+var numeroPensado = Math.round(Math.random() * 10); <!-- NOVIDADE aqui temos o MATH.RANDOM  que gera um número aleatório EX:0.1000000 entretanto, queremos que seja gerado um número entre 0 e 10,mas para fazer isso multiplicaremos o numero gerado no Math.random por 10 para andar uma casa decimal e ficar assim EX:01.0000000,e para ARREDONDAR esse valor gerado usamos O MATH.ROUND que trasforma esse EX: 01.0000000 em 1 .
+console.log(numeroPensado);<!-- NOVIDADE aqui temos o CONSOLE.LOG,ele serve para podemos VER ALGUMA INFORMAÇAO NO CONSOLE nesse caso vemos qual foi o numero sorteado no NUMEROPENSADO essa informaçao será exibida no console do navegador, em que poderemos visualizar antes mesmo de inserirmos nosso palpite:-->
+var chute = parseInt(prompt("digite seu chute!"));
+
+	if(chute == numeroPensado) {
+    mostra("Você acertou!");
+
+} else { <!-- NOVIDADE aqui temos o ELSE/SE NAO com ele não e preciso repetir em um novo if(),pois o else e a a condição contrária. Ele entende que, se a condição do if() não for verdadeira, só pode existir a outra condição. ou seja faz a quase a mesma coisa que o if,porem simplifica e deixa o codigo mais limpo  e de facil compreencao-->
+    mostra("Você errou, o número pensado foi " + numeroPensado);
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 4-->
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var idade = parseInt(prompt("Qual é sua idade?"));
+    var temCarteira = prompt("Tem carteira? Responda S ou N");
+
+</script>

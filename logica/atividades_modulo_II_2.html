@@ -1,0 +1,121 @@
+<canvas width="600" height="400"></canvas> <!--treino 1-->
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {// aqui criamos uma FUNCTION chamada desenha quadrado,que recebe como PARAMETRO X,Y e sua cor para desenha quadrado
+
+        var tela = document.querySelector('canvas'); //atribuindo a variavel tela ao canvas do html no javascripit
+        var pincel = tela.getContext('2d'); //atribuindo a variavel pincel,a uma funcionalidade do canvas( canvas que agora e tela)
+
+        pincel.fillStyle = cor;//aqui o pincel recebe o cor
+        pincel.fillRect(x, y, 50, 50);// aqui pincel recebe de tamanho os parametros X Y(cordenadas/localizaçao) e 50,50( tamanho)
+        pincel.strokeStyle = 'black';//Novidade aqui temos STROKERECT indicaremos ao pincel que ele deve desenhar uma borda, utilizando o STROKERECT(). OBS:::: Essa borda deve ser inserida na mesma posição do quadrado:
+        pincel.strokeRect(x, y, 50, 50);// em cima indicamos a cor do STROKERECT/ borda, e nessa linha indicamos o tamanho dela com os parametros X Y(cordenadas/localizaçao) e 50,50( tamanho)
+}
+
+desenhaQuadrado(0, 0, 'blue'); // CHAMAMOS A NOSSA FUNCTION passamos o valor ATRIBUIDO ao seus PARAMETROS () ou seja o valor de das cordenadas X Y dos quadrados ,e tambem o qual sua cor
+desenhaQuadrado(0, 50, 'red');// EX:chamando a funçao/function para desenhar um quadrado,as cordenadas passadas fazem com que sua posiçao seja quadrados um ABAIXO do outro e sua cor vai receber red/vermelho
+desenhaQuadrado(0, 100, 'yellow'); //sabemos que um quadrado esta abaixo do outro porque quem muda de posiçao/cordenada e Y ou seja( LARGURA).X continua em 0, ou seja somente Y se move,fazendo com que os quadrados fiquem um abaixo do outro
+
+// OBS:::: as cordenadas mudando de 50 nao sao por acaso,o quadrado tem tamanho de 50X50 ou seja largura=50  altura=50, e as cordenadas SEMPRE COMEÇAM de 0, ou seja X/largura=0   Y/altura= 0  
+//  sabendo disso fica claro que se quadrado tem 50x50 significa que ele começa de 0x0, e termina em 50,entao nesse 50 podemos adicionar outro quadrado que vai passar a começar em 50 e vai terminar em 100,depois outro começa de 100 e termina em 150 e por ai vai  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<canvas width="600" height="400"></canvas><!--treino 2-->
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+
+}
+// PEQUENA MUDANÇA
+desenhaQuadrado(0, 0, 'green'); // aqui somente ATRIBUIMOS OS VALORES que foram recebidos no PARAMETROS 
+desenhaQuadrado(50, 0, 'green'); // OBS:::: aqui os quadrados passam a ser um ao lado do outro, alem de todos serem verdes ao contrario do codigo do TREINO 1
+desenhaQuadrado(100, 0, 'green');// isso acontece porque quem muda de posiçao/cordenada e X/largura ja Y/altura continua "parado",dando a impressao de um quadrado seguido de outro
+
+</script>
+
+
+
+
+
+
+<canvas width="600" height="400"></canvas><!--treino 3-->
+
+<script>
+
+    function desenhaQuadrado(x, y, cor) {
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, 50, 50);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, 50, 50);
+
+}
+ // PEQUENA MUDANÇA
+ //ESTRUTURA DE REPETIÇAO
+ //aqui queremos imprir varios quadrados no tamanho canvas/tela
+    var x = 0;// declaramos uma variavel x que recebe 0
+
+    while(x < 600) { // REPITA/while enquanto variavel X for menor/< que 600 (ou seja largura do canvas/tela) repita 
+
+        desenhaQuadrado(x, 0, 'green');// CHAMANDO a FUNCAO/FUNCTION e passando em seu parametro os valores x=0 y=0 e cor green/verde
+    x = x + 50;// varivel X recebendo mais/+ 50 ,
+	//Ou seja REPITA de 50 em 50 ate que o valor de X seja maior que 600
+	//OBSERVAÇAO a repetiçao de 50 em 50 tambem nao e por acaso,e para que seja "pariavel" com do tamnho do quadradro,o quadrado e de 50x50,ou seja começa em 0 termina em 50.
+	//O codigo vai "dezenhar" um quadradro de 50 em 50 X/largura ou seja se um quadradro TERMINA com 50cm sera implementado outro na sua frente outro quadradro que vai COMEÇAR do 50 e TERMINAR no 100,depois COMECAR 100 TERMINAR 150,depois COMECAR 150 TERMINAR 200 e etc...
+    }
+   
+   
+   
+ //OUTRA FORMA DE FAZER A MESMA COISA COM OUTRA ESTRUTURA DE REPETIÇAO
+    for(var x = 0; x < 600; x = x + 50) { //SE/FOR X(que vale 0) for menor/< que 600( tamanho do canvas) repita de 50 em 50
+    desenhaQuadrado(x, 0, 'green');//// CHAMANDO a FUNCAO/FUNCTION e passando em seu parametro os valores x=0 y=0 e cor green/verde
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

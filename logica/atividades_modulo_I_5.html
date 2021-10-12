@@ -1,0 +1,101 @@
+<meta charset="UTF-8"> <!-- treino 1-->
+
+<script>
+function pulaLinha() {
+        document.write("<br>");
+    }
+    function mostra(frase) {
+        document.write(frase);
+         pulaLinha();		
+}
+function calculaImc(altura, peso) {<!--AQUI COMEÇA A FUNCTION****  aqui se esta dando o nome da funcao/funtion e dissendo o que ela vai ter que pegar,no caso ela tem que pegar dois valores,uma altura e um pesso-->
+  var imc = peso / (altura * altura);<!--  declarando uma variavel e montando como vai ser feito o calculo,que vai ser o seguinte calculo altura vezes altura dividido por peso-->
+  mostra("O imc calculado é " + imc);<!-- AQUI TERMINA A FUNCTION****aqui e mostrado na tela o resultado da conta -->
+   }
+   
+calculaImc(1.71, 73);<!--chamando a funcao e passando os dados que ela precisa para calcular-->
+calculaImc(1.72, 73);
+
+</script>
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 2-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function calculaImc(altura, peso) {<!-- nome da funcao/funtion e o que ela vai receber-->
+        var imc = peso / (altura * altura); <!-- declaramos uma variavel imc e o calculo que ela faz-->
+		return imc;<!-- NOVIDADE aqui e o RETURN,sua funcao e retornar um valor nesse caso queremos que ele retorne o imc valor final da conta que a variavel imc vai trazer -->
+	
+    }
+
+    var imcCalculado = calculaImc(1.77, 75);<!-- AQUI FAZEMOS BASTANTE COISA PRESTA ATENCAO, declaramos uma variavel IMCCALCULADO e dizemos que ELA CHAMA a nossa FUNCAO/FUNTION que e a CALCULAIMC,e entre () estao os VALORES que vao ser passados para que a CONTA  NA VARIAVEL IMC SEJA FEITA, E O RETURN RETORNE O VALOR FINAL DESSA CONTA na variavel-->
+    mostra("O meu IMC é : " + imcCalculado);<!-- aqui e mostrado na tela, um texto e o resultado da variavel IMCCALCULADO que nada msis e que o valor final da conta,o que vai estar com o return(OBSS: ESSA VARIAVEL ALEM DE CHAMAR A NOSSA FUNTION E FAZER COM QUE TODAS AS ACOES DENTRO DESSA FUNTION ACONTECAM,ELA TAMBEM SE DECLARA RESPONSAVEL POR MOSTRAR ESSE VALOR UMA VEZ QUE USOU = OU SEJA ATRIBUIU O RESULTADO DE TODA A NOSSA FUNTION A ELA,SENDO ASSIM ELA PASSA A DETER O RESULTADO FINAL DA CONTA
+	I-->
+</script>
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 3-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var numero1 = prompt("Digite o primeiro número"); <!-- aqui temos o PROMT ele tem como funcao mostrar um pupup com local para ser inserido algo,ou seja ele coleta dados,dados do usuario do teclado,nesse ex ele pede um numero ao usuario e guarda sua resposta E PERCEBA OS () esse e o parameto/algo/pergunta que o pront tem que exibir ao usuario-->-->
+    var numero2 = prompt("Digite o segundo número");<!-- Explicando o que esta acontecendo, temos um variavel NUMERO2 que e ABRIBUIDA/DADA ao PROMT,ou seja o promt vai receber/coletar o que for passado/dado a essa variavel e vai guardar nele-->
+
+    mostra("O valor de " + numero1 + " vezes " + numero2 + " é: " + (numero1 * numero2));<!-- aqui vamos mostrar um texto na tela e fazer uma conta,iremos mostramos aqui quais foram os valores recebidos pelas variaveis NUMERO1 e NUMERO2,que foram COLETADAS/RECEBIDAS VISUALMENTE pelo pront(lembrando que quem manda esses valores dessas variaveis pelo pront e o usuario),logo apos exibir esses valores no texto e feito uma conta que soma esses dois valores, e no fim de tudo exibir qual o resultado essa soma-->
+
+</script>
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 4-->
+
+<script>
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function a(numero1, numero2) {<!-- aqui temos uma funcao/function que recebe dois numeros,ou seja dois parametros-->
+        return numero1 + numero2; <!-- aqui temos o RETURN,ele tem como funcao retornar um valor para o usuario e nele tambem fizemos uma conta,ou seja ele vai retornar os valores que vao ser dados pelo usuario e alem disso vai fazer uma conta com eles -->
+    }
+
+    function b(numero1, numero2) {<!-- outra function novamente -->
+        return numero1 / numero2;<!-- outro RETURN e com outra conta-->
+    }
+
+    var resultado = a(10,20) + b(30,2);<!-- aqui temos uma variavel RESULTADO que CHAMA/INVOCA a nossas FUNCTION tanto quanto a function a quanto a b,(observe os () ali sao passados os PARMETROS/CONTEUDO lembre-se,nossas functions recebem dois parametros NUMERO1 e NUMERO2 entao quando  nossas function forem chamadas elas tem passar dentro de seus parametros () dois valores que serao correspondendes  NUMERO1 e NUMERO2 OBS::SEMPRE USE A VIRGULA PARA FAZER COM QUE O PROGRAMA ENTENDA QUE ALI SAO REFERENCIADAS DUAS COISAS OU MAIS) Retomando,apos esses valores serem passados nos parametros() lembrese-se do que as nossas Funcion fazem, que e o seguinte alem de retornarem o valor com o RETURN exite tambem em cada uma delas uma conta,essas contas sao feitas no retun,e so ai o return realmente passa a ter os resultados de cada uma das duas function,mas antes de finalizar tem outra conta a ser feita mas essa ja nao e no return e sim nessa linha,na variavel RESULTADO que consiste  em fezer uma soma dos valores que estao sendo quardados dentro do return, ou seja o return retorna esses resultados para a variavel RESULTADO e ela faz uma soma desses dois valores e so depois disso o valor final e exibido -->
+s
+    mostra(resultado);
+</script>

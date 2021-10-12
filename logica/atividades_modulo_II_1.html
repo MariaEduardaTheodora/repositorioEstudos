@@ -1,0 +1,62 @@
+<canvas width="600" height="400"  </canvas> <!-- O canvas é uma área da tela onde podemos desenhar, escrever com um pincel,dentro dessa tag precisamos informar  quanto o <canvas> ocupa de espaço. Para isso, utilizaremos dois atributos, o width WIDTH/LARGURA diremos que é 600, e HEIGHT/ALTURA que será de 400.-->
+
+<script>
+var tela = document.querySelector("canvas"); //dentro do JS, criamos uma variavel TELA e a atribuimos  para o DOCUMENT executar a função QUERYSELECTOR() (essa funçao faz com que mundo html e javascripit possam integragir) E entre  (" ") passamos qual tag queremos trabalhar,no caso aqui e o CANVAS ou seja o DOCUMENT.QUERYSELECTOR("CANVAS") vai para pegar este <CANVAS> e passá-lo como valor na variável TELA.
+var pincel = tela.getContext('2d'); //Criaremos uma variável PINCEL, que receberá como valor a TELA(o valor de tela e o valor que foi passado no canvas do html)ou seja tela recebe canvas) ,TELA agora assim como o document.queryelector sabe buscar um elemento da página por meio da tag, e fornecer um retorno para a variável, entao aqui ela passar o pincel que recebe tela.getContext() ,o GETCONTEXT e usado porque o mundo da programação podemos ter gráficos em 2D, 3D, 4D, enfim, portanto, precisamos informar à tela qual o tipo de pincel, ou seja, o contexto no qual escreveremos na tela nesse caso e passaremos o 2d como parâmetro:
+
+//Já temos a tela e o pincel, portanto podemos escrever na tela.Se o PINCEL foi dado pelo <CANVAS>, qualquer operação feita nele atuará sobre a TELA.
+//Nossa primeira operação será desenhar um retângulo de dimensões 600x400, para preencher todo o <CANVAS>. Para fazer isso, chamaremos o PINCEL, e  passamos para ele a funçaofillRect/PREENCHER RETANGULO que preenche/colore todo retangulo,
+//precismoas tambem passar em seu parametro() por onde começar a preencher/colorir.Na matemática trabalhamos com a ideia de planos cartesianos, onde temos um eixo x, na horizontal, e um eixo y, na vertical. que sao os primeiros pontos OU SEJA 0,e por eles que começar a preencher/ colorir.
+//Inserimos tambem a cordenada,correspondente a forma que queremos nosso desenho,aqui no caso queremos criar uma forma que tenha 600 de largura, e 400 de altura. 
+  
+// Por regra o o peenchimento/cor vem em preto,maspodemos usar a cor que quisermos com o FILLSTYLE,ele recebe cor.
+//Diferentemente de fillRect(), getContext(), ou de querySelector(), o fillStyle não é uma função, e sim o que chamamos de PROPRIEDADE. É equivalente a uma variável, por receber um valor, que é a cor. No caso, utilizaremos o 'lightgrey 
+ 
+pincel.fillStyle = "lightgrey"; // aqui como dito a cima estamos dando a cor que o retangulo deve ser preenchido, no caso cinza
+pincel.fillRect(0,0,600,400); // aqui como dito a cima temos o FILL.RECT,que vai prencher o retangulo. E em seu parametro (0,0) que corresponde ao ponto que se começa a colorir/preencher. E (600,400) que corresponde a cordenada/a forma que 600 de width/largura, e 400 de height/altura ou seja e um retangulo
+
+pincel.fillStyle = "green"; // aqui mudamos as cordenadas,colorismos de verde menos da metade do nosso canvas 200x400, colorismos o lado esquerdo
+pincel.fillRect(0, 0, 200, 400);
+
+pincel.fillStyle = "red"; // ja aqui colorismo de vermelho, menos da metade do nosso agora o lado direito 200X400
+pincel.fillRect(400, 0, 200, 400);
+
+pincel.fillStyle = 'yellow'; // aqui colorismos de vermelho
+pincel.beginPath(); //e usamos o BEGINPATH que serve para desenhar um caminho do pincel
+pincel.moveTo(300, 200);// aqui usaremos o MOVE TO/MOVA PARA nesse caso o ultilizamos para indicarmos onde está o ponto inicial do nosso triângulo. Nossa primeira coordenada será centralizada na tela
+pincel.lineTo(200, 400);//aqui usamos o LINETO/LINHA PARA  para moveremos o pincel para uma nova posição, Esta posição será o ponto de encontro entre o verde e o cinza, e a linha inferior de nosso <canvas>, portanto, 200 no eixo X, e 400 no eixo Y:
+pincel.lineTo(400, 400);// aqui usamos o LINETO/LINHA PARA novamente para criar o próximo movimento criará uma linha horizontal, do ponto que acabamos de criar até o ponto em que o cinza encontra o vermelho, de coordenadas 400 (X), e 400 (Y):
+pincel.fill();// aqui usamos FILL/PREENCHER que e um comando para que o programa preencha esta forma
+
+
+pincel.fillStyle = 'blue';// colorimos de azul
+pincel.beginPath(); // aqui temos BEGINPATH novamente para indicarmos um novo caminho do pincel OBS:Temos de iniciar um novo caminho, caso contrário, o programa entenderá que deve continuar o caminho anterior.
+pincel.arc(300, 200, 50, 0, 2 * 3.14); //aqui temos o ARC/ARCO essa função e para traçarmos uma esfera esfera. Nela, incluiremos as seguintes informações:
+//Posicionamento da esfera, que definiremos como 300 (X) e 200 (Y);
+//Tamanho, ou seja, o raio - que definiremos como 50;
+//O ângulo inicial 0, e o ângulo final 2, em radianos (multiplicado por PI - 3,14);
+//NAO SE PREOCUPE COM AS CONTAS
+pincel.fill();//preenchemos a forma no caso a esfera
+
+
+
+
+
+
+
+
+
+
+
+
+
+//OBSERVAÇAO variavel PINCEL recebe "conceitos/parametros" como (preencher,colorir,tamanho,forma) porque esta ligada a variavel tela TELA,E TELA corresponde ao CANVAS que e quem nos permite DESENHAR,Ou seja um depende do outro para que algo aconteca na tela.
+//OBSERVAÇAO nunca passe dimençoes/formas acima do que o canvas suporta,se o CANVAS foi passado com 600X400 isso significa que so recebe dimençoes ate esse ponto,se passarmos dimençoes de formas com mais que isso (EX:800X700) o canvas vai ignorar e desenhar somente ate onde seu tamanho comporta
+//PODE SER DIFICIL ACERTA AS CORDENADAS EM UM CODIGO MAIS COMPLEXO
+
+
+
+
+
+
+ </script>

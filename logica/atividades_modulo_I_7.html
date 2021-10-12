@@ -1,0 +1,271 @@
+<meta charset="UTF-8"> <!-- treino 1-->
+
+<script>
+function pulaLinha() {
+        document.write("<br>");
+    }
+    function mostra(frase) {
+        document.write(frase);
+         pulaLinha();		
+   }
+  var limite = parseInt(prompt("Entre com a data limite")); <!-- aqui perguntamos  uma data ao usuario com o PRONT,e passamos o PARSEINT para dizer que ali vai estar um numero,isso porque o pront por pratica recebe palavras,precisamos definir a ele quando for passado um numero-->
+
+var anoCopa = 1930; <!-- varivel que recebe o valor do primeiro ano de copa-->
+
+while(anoCopa <= limite) {  <!--NOVIDADE aqui temos o white/REPITA,ele repete enquanto condiçao x  EXISTIR OU SEJA REPETE ENQUANTO FOR VERDADEIRA/TRUE OU FALSE/FALSO,caso ela deixe de atender a condiçao imposta ela para de repedir e "quebra o laço" essa CONDICAO fica sempre dentro dos ()CHAVES, e os {} PARAMETROS ditam oque e feito enquanto essa CONDIÇAO existir-->
+
+                <!--  OBS:::::ESSA CONDICAO() DO WHILE diz- ENQUANTO ANOCOPA=1930 FOR MENOR OU IGUAL A LIMITE=X REPITA ,E MOSTRA/ESCREVA NA TELA ESSES VALORES GERADOS ATE QUE ESSA CONDICAO() SE TORNE FALSA OU SEJA QUE ANOCOPA PASSE A SER MAIOR OU IGUAL LIMITE-->	  
+    
+	mostra("Teve copa em " + anoCopa); 
+    anoCopa = anoCopa + 4; <!-- IMPORTANTE:o objetivo é fazer com que o programa exiba todos os anos em que houve copas do mundo,(as copas acontecem de 4 em 4 anos)Sabendo que a variavel ANOCOPA recebe 1930 ou seja o ano da PRIMEIRA COPA,agora aqui ela passa a receber mais 4 numeros OU SEJA 1930+4=1934,e assim por diante o laço vai se repetindo e a variavel ANOCOPA vai sendo atualizado com sempre mais 4 numeros formando assim os anos de capa e EXIBINDO NA TELA ESSES NUMEROS ATE QUE A CONDIÇAO SEJA SE TORNE FALSA E PARE DE REPETIR-->
+	}  <!-- AQUI VEMOS O FIM DO PARAMETRO {} OU SEJA AS INSTRUÇOES QUE SERAM FEITAS NO LAÇO DE REPETICAO SO VAO ATE AQUI
+ 
+
+mostra("FIM"); <!-- aqui ja estamos fora do laço de repetiçao, ou seja "FIM" sera exibido de qualquer forma porque nao tem nenhuma condiçao imposta a ele,e ele ESTA FORA DO LACO-->
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"><!-- treino 2-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia() {<!-- criei uma function e chamei ela de SORTEIA para ficar mais facil viasualmente,dentro dela usei o MATH.RANDOM(e ele que sorteia)-->
+
+        return Math.round(Math.random() * 100);<!-- eu defini ja na  function as casas decimais que quero pular ou seja multiplicando o MATH.RADOM por 100, e ja arredondando o numero com o MATCH.ROUND-->
+    }   <!-- fim da function{{-->
+
+    var numeroPensado = sorteia(); <!-- varivel 	numero PENSADO recebe SORTEIA uma FUNCTION que gera numeros aleatorios-->
+
+    var chute = parseInt(prompt("Já pensei. Qual você acha que é?")); <!-- variavel CHUTE vai receber algum NUMERO do pront dado pelo usuario-->
+
+    if(chute == numeroPensado) { <!-- SE/IF a varievel CHUTE for IGUAL (==) a variavel NUMEROPENSADO, MOSTRA/ESCREVA na tela uma frase e a concatene (+) com o valor sorteado pela FUNCTION SORTEIA na varivel NUMEROPENSADO-->
+
+        mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado); <!-- frase a ser exibida mais a concatenacao da variavel-->
+    } <!-- acaba if/se-->
+	else { <!--começa else/se nao-->
+        var contador = 1; <!-- variavel contador recebe 1-->
+
+        while( contador <= 10 ) { <!-- ENQUANTO a variavel CONTADOR FOR MENOR OU IGUAL A 10 REPITA, MOSTRE/ESCREVA UMA FRASE-->
+
+            mostra("Já era, você errou!"); <!-- frase a ser exibida -->
+            contador = contador + 1; <!-- a variavel CONTADOR passsa a RECEBER mais 1 ou seja 1+1=2,ou seja -->
+        }
+
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 3-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+var idade = parseInt(prompt("Digite sua idade"));<!-- como ja sabemos o PRONT e usado para perguntar e colher alguma informaçao do usuario,aqui no caso queremos um numero entao usamos o PARSEINT   -->
+
+while( isNaN(idade) ) {<!-- NOVIDADE aqui temos uma FUNCTION chamada ISNAN(E UM NUMERO).Para incio de conversa aqui queremos saber se um valor digitado pelo usuario e um é "NaN" ou seja (NAO E UM NUMERO) ,para isso precisamos usar essa função específica,a ISNAN. Essa função recebe um parâmetro e retorna true ou false caso o valor seja NaN ou não. -->
+<!-- sabendo disso o WHILE faz isso: ENQUANTO A FUNCTION ISNAN(E UM NUMERO) FOR FALSA OU SEJA (NAN,NAO E UM NUMERO) REPITA, E MOSTRE A FRASE, PEDINDO PARA TENTAR NOVAMENTE,(ISSO QUER DIZER QUE AQUI O USUARIO ESTA DIGITANDO UM NAN,um caracter que nao e um numero),POREM QUANDO FOR DIGITADO UM INSNAN OU SEJA UM NUMERO A FUNCAO PASSA A SER VERDADEIRA E QUEBBRA O LAÇO,OU SEJA PARA DE REPETIR (isso quer dizer qundo e digitado um caractere numero)-->
+    idade = parseInt(prompt("CARACTERE INCORRETO TENTE NOVAMENTE,DIGITE SUA IDADE EX:20"));    
+}
+
+alert(idade + " ANOS,CORRETO!");<!-- frase com alert exibido ao usuario dizendo que foi digitado um caractere numerico correto-->
+
+</script>
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 4-->
+<script>
+document.write("<br>")
+document.write("<br>")
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+for(var multiplicador = 1; multiplicador <= 10; multiplicador = multiplicador +1) {<!--NOVIDADE aqui temos FOR,ele faz a mesma coisa que o WHILE,porem os PARAMETROS(O QUE ELE FAZ) ficam todos na mesma linha-->
+
+    mostra(7 * multiplicador); <!-- mostra na tela o RESULTADO DA OPERCAO,varivel MULTIPLICADOR VEZES 7-->
+
+}
+
+mostra("FIM");
+
+//MULTIPLICADOR++   
+ //NOVIDADE AQUI TEMOS ++ ELE FAZ A MESMA COISA QUE ex:::MULTIPLICADOR=MULTIPLICADOR+1 
+ //EX::::   var multiplicador = 0; multiplicador++;
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 5-->
+<script>
+document.write("<br>")
+document.write("<br>")
+
+function pulaLinha() {
+
+    document.write("<br>");
+    document.write("<br>");
+
+}
+
+function mostra(frase) {
+
+    document.write(frase);
+    pulaLinha();
+
+}
+
+var totalFamiliares = parseInt(prompt("Quantidade de familiares?"));
+
+var numero = 1;
+var totalIdades=0;<!-- sempre atribua valores mutaveis de VARIAVEL fora do WHILE()-->
+while(numero <= totalFamiliares) {
+//var totalIdades = 0; <!-- EX:(NAO FACA ASSIM)Como a inicialização do totalIdades está inserida no while(), todas as vezes que o while() for inicializado, a variável totalIdades será zerada, pois recebe 0. Assim, não serão somadas as idades, mas sim consideradas individualmente, até que o totalIdades receba somente o último valor a ser inserido,-->
+    var idade = parseInt(prompt("Informe idade do familiar"));
+    totalIdades = totalIdades + idade;
+    numero++;
+
+}
+var mediaDasIdades = totalIdades/totalFamiliares
+mostra("A média das idades dos familiares é " + mediaDasIdades);
+mostra("FIM");
+</script>
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 6-->
+<script>
+document.write("<br>")
+document.write("<br>")
+
+    function pulaLinha() {
+
+        document.write("<br>");
+        document.write("<br>");
+}
+
+    function mostra(frase) {
+
+        document.write(frase);
+        pulaLinha();
+}
+
+var numeroPensado = Math.round(Math.random() * 10);
+
+var tentativas = 1;
+
+while(tentativas <= 3) {
+
+    var chute = parseInt(prompt("Digite seu chute!voce tem 3 tentativas"));
+
+    if(chute == numeroPensado) {
+
+        mostra("Você ACERTOU, o número pensado era " + numeroPensado);
+        break;<!-- NOVIDADE a funcao BREAK ,ele sai do loop de repetiçao ou seja do WHILE e passa para a proxima "demanda" que no caso e o nosso MOSTRA-->
+<!-- BREAK serve para quebrar uma repeticao,quando objetivo de tal repeticao e alcançado,nesse caso o objetivo e acerta o numero pensado,lembrando que o usuario tem 3 TENTATIVAS,caso o usuario acerte esse numero o progrma para o loop e passa para a instruçao FORA DO LOOP NEESSE CASO E O MOSTRA,-->
+   <!-- sua vantagem e caso o usuario acerte a primeira tentativa ou a segunda nao importa,ele quebra o loop,SEM O BREAK MEMSO QUE O USUARIO ACERTASSE AS PRIMEIRAS TENTATIVAS ELE IRIA REPETIR DE NOVO,ATE SE ESGOTAR AS 3 TENTATIVAS-->
+   } else {
+
+        mostra("Você ERROU!");
+    }
+
+    tentativas++;
+}
+
+mostra("FIM");
+</script>
+
+
+
+
+
+
+<meta charset="UTF-8"> <!-- treino 7-->
+<script>
+document.write("<br>")
+document.write("<br>")
+
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase){
+
+        document.write(frase);
+        pulaLinha();
+    }
+
+    for(var linha = 1; linha <= 3; linha++) {
+<!--OBSEREVE teremos um FOR() dentro de outro, sendo que o primeiro FOR é responsável por criar a primeira, segunda e terceira linhas. Já o segundo FOR que está inserido nele é responsável por repetir as colunas. Para cada linha criada pelo primeiro FOR, o segundo FOR imprimirá 10 colunas, criando assim 3 linhas com 10 asteriscos cada, -->
+        for(var coluna = 1; coluna <= 10; coluna++) {
+            document.write("*");<!-- te poderiamos digitar 10 * dentro do document.write,porem essa forma mostrada aqui tambem e um opçao mais relevante -->
+        }
+        pulaLinha();
+    }
+
+</script>

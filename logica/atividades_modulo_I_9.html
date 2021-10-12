@@ -1,0 +1,237 @@
+<meta charset="UTF-8">
+
+<input/> 
+<button>Compare com o meu segredo</button>
+
+<script>
+
+// NESSE CODIGO A INTENÇAO E DAR MAIS CHANCES DO USUARIO ACERTA O NUMERO "ALEATORIO" E COM ISSO MOSTRAR A O USUARIO SE ELE ACERTOU OU NAO,PARA ISSO TEMOS O ARRAY QUE GERA UMA LISTA DE NUMEROS
+//NOVIDADE aqui a  variável SEGREDO não guarda somente um valor, mas uma lista com diversos números. Ai que entra o ARRAY, inserindo os VALORES DENTRO DOS COLCHETES EX:::[X,X,X,X,]
+//ARRAY e uma LISTA e sempre começa da posiçao 0,ou seja voce tem 5 valores dentro de um array[5,7,10] e voce quer saber a POSICAO deles,LEMBRE-SE:::5 E POSIÇAO 0,7 POSICAO 1,2 POSIÇAO 3.
+//E UMA BOA PRATICA dar nome no PLURAL para a VARIAVEL QUE RECEBE O ARRAY[] EX:segredoS,frutaS,notaS-->
+
+    var segredos = [5,7,10,2,3];   //aqui temos uma vraivel SEGREDOS que recebe um  array [] COM POSIÇOES DE 0 a 4
+console.log(segredos);
+    var input = document.querySelector("input"); // aqui demos direito ao javascript interagir com html(EXPLIQUEI ISSO NA AULA 8)
+        input.focus();
+
+    function verifica() { // aqui temos uma FUNCTION que VERFICA se o usuario ACERTOU ou ERROU,para ela fazer essa verificaçao ela REPETE essa verficaçao em cada uma das posiçoes/iteins no array
+
+    var achou = false; // achou recebendo false 
+	//ATENÇÃO declararemos uma variável chamada ACHOU, que RECEBE= FALSE porem quando o número digitado pelo usuario corresponder a um dos elementos do ARRAY,passamos a  declarar que ACHOU passa a RECEBE true( achou = true)Com isso, informamos ao JavaScript que um dos números do é compatível com o digitado pelo usuario. Caso o número digitado não esteja presente em segredos ou seja na array,passamos a informar la no IF que ACHOU ===e IGUAL a false(achou == false), ou seja, se ACHOU for false, deve ser exibido um aviso informando ao usuário que ele errou
+
+    for(var posicao = 0; posicao < segredos.length; posicao++) { // criamos uma varaivel POSIÇAO que recebe=0(todo array começa da posiçao 0),variavel POSIÇAO MENOR< QUE SEGREDOS( posicoes do ARRAY), Enquanto for verdade incremete POSIÇAO ++(Ou seja e de 0, ela foi para 1,e assim vai indo a repetiçao de verificacao ENQUANTO AS POSIÇOES DO ARRAY FOREM MENORES QUE O VALOR POSICAOES
+	//EX: ARRAY com 3 elementos,tem 2 Posiçoes ======== elemento1=posiçao0, elemento2=posiçao1 ,elemento3=posiçao2 
+    //RESUMINDO o programa verfica o que tem em cada posiçao da lista do array,ou seja se eu tenho 3 numeros(elementos) na lista(array) ele vai verificar os 3 numeros(elementos) E SE ALGUM DELES FOR IGUAL= AO NUMERO(ELEMENTO) digiatdo pelo usuario,e exibido um alerta com frase de acerto,caso CONTRARIO SE NAO FOR IGUAL= AO NUMERO(ELEMENTO) digiatdo pelo usuario,e tambem exibido um alerta mas de erro.
+	//OBS::: LENGTH e usado para dizer o tamanho do ARRAY ou seja eu nao preciso me preocupar com a quantidade de iteis no array so usar o LENGTH ele mesmo ja tras esse valor para mim EX:segredos.length
+	
+	if(input.value == segredos[posicao]) { // SE o que foi digitado pelo usuario no INPUT(html) FOR IGUAL = ao que tem dentro []da ARRAY SEGREDOS[elemento/numeros]  em ALGUMA das POSIÇAO faça:
+	//ou seja compara o que foi digitado(pelo usuario)com a poiscao que eu estou "varrendo"/verificando/proucurando agora
+	//EX:::: usuario digitou 2,e 2 esta na 5/quinta posicao, entao o programa vai vericar/proucurar o numero 2,na 1primeira,2segunda,3terceira, ate chegar a 5quinta posiçao,posiçao essa que o numero 2 se encontra nissso o progrma PARA de testar as outras posiçoes do array e motra mensagem de acerto(ja que o usuario ja "acertou" o numero).Mas caso esse numero 2 nao esteja dentro do array em poisçao nenhuma o progrma mostra mensagem de erro
+
+            alert("Você ACERTOU!"); // mostra alerta com frase de acerto
+            achou = true; //achou agora recebendo true ou seja O USUARIO ACERTOU
+            break; //se o usuario acertar pare a repetiçao
+        }
+    }
+
+    if(achou == false) { // achou sendo == a false oe seja o USUARIO ERROU
+        alert("Você ERROU!");//mostra frase de erro
+    }
+
+    input.value = "";
+    input.focus();
+
+    }
+
+    var button = document.querySelector("button");// aqui demos direito ao javascript interagir com html(EXPLIQUEI ISSO NA AULA 8)
+
+    button.onclick = verifica; // ao usuario clicar no button/botao(html) e EXECUTADO A FUNÇAO VERFICA
+
+</script>
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+    function sorteia() { // funçao criada para SORTEAR numeros Aleatorios
+
+       return Math.round(Math.random() * 10); // aqui dizemos que queremos que os numeros gerados sejam alem de aleatorios,sejam tambem arredondado e com uma casa,ou seja de 1 a 10
+
+    }
+
+    function sorteiaNumeros(quantidade) { //funçao criada para conter um array ela deve ser capaz de nos dar uma lista com números aleatórios que não se repetem. Declaramos a function a chamamos de SORTEIANUMEROS que receberá como parâmetro () quantidade que e  o total/quantidade de itens aleatórios que não se repetem, e que serão retornados. No caso, passaremos 3, sendo assim, quantidade valerá 3:
+
+        var segredos = [];//aqui a variável segredos recebe nosso array começa com o array vazio:
+
+        var numero = 1;// criaremos a variavel o contador numero, que iniciará em 1 .
+
+        while(numero <= quantidade) { //ENQUANTO variavel NUMERO FOR MENOR OU IGUAL a QUANTIDADE
+
+              var numeroAleatorio = sorteia(); //SEGREDOS.PUSH() receberá a função SORTEIA()
+              var achou = false;// achou recebendo false 
+
+              if (numeroAleatorio !== 0) {// SE NAO
+                     for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+                           if(segredos[posicao] == numeroAleatorio){
+                                achou = true;
+                                break;
+                           }
+
+                     }
+
+                     if (achou == false) {
+                           segredos.push(numeroAleatorio);
+                           numero++;
+                     }
+              }
+
+        }
+
+        return segredos;
+
+    }
+
+    var segredos = sorteiaNumeros(3);
+
+    console.log(segredos);
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+
+       var achou = false;
+
+       for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+              if(input.value == segredos[posicao]) {
+
+                     alert("Você ACERTOU!");
+                     achou = true;
+                     break;
+              } 
+       }
+
+       if(achou == false) {
+
+              alert("Você ERROU!");
+       }
+
+       input.value = "";
+       input.focus();
+
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8">
+
+<input/>
+<button>Compare com o meu segredo</button>
+
+<script>
+    function sorteia() {
+
+       return Math.round(Math.random() * 10);
+
+    }
+
+    function sorteiaNumeros(quantidade) {
+
+        var segredos = [];
+
+        var numero = 1;
+
+        while(numero <= quantidade) {
+
+              var numeroAleatorio = sorteia();
+              var achou = false;
+
+              if (numeroAleatorio !== 0) {
+                     for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+                           if(segredos[posicao] == numeroAleatorio){
+                                achou = true;
+                                break;
+                           }
+
+                     }
+
+                     if (achou == false) {
+                           segredos.push(numeroAleatorio);
+                           numero++;
+                     }
+              }
+
+        }
+
+        return segredos;
+
+    }
+
+    var segredos = sorteiaNumeros(3);
+
+    console.log(segredos);
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    function verifica() {
+
+       var achou = false;
+
+       for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+              if(input.value == segredos[posicao]) {
+
+                     alert("Você ACERTOU!");
+                     achou = true;
+                     break;
+              } 
+       }
+
+       if(achou == false) {
+
+              alert("Você ERROU!");
+       }
+
+       input.value = "";
+       input.focus();
+
+    }
+
+    var button = document.querySelector("button");
+
+    button.onclick = verifica;
+
+</script>

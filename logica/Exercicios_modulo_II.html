@@ -1,0 +1,479 @@
+<!--
+<canvas width="600" height="400"></canvas> <!-- 1-Desenha bolinhas em forma de flor--
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaFlor() {
+
+        desenhaCirculo(300, 220, 10, 'blue'); //bolinhas do eixo Y,altura
+        desenhaCirculo(300, 200, 10, 'red');//bolinhas do eixo Y,altura
+        desenhaCirculo(300, 180, 10, 'yellow');//bolinhas do eixo Y,altura
+
+        desenhaCirculo(280, 200, 10, 'orange');//bolinhas do eixo X,largura
+        desenhaCirculo(320, 200, 10, 'black');//bolinhas do eixo X,largura
+
+    }
+
+    desenhaFlor();
+
+</script>
+
+
+
+
+<canvas width="600" height="400"></canvas><!-- 1-Desenha bolinhas em forma de flor,OUTRA FORMA DE FAZER--
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaFlor(x, y) {
+
+        desenhaCirculo(x, y+20, 10, 'blue');//X=300, Y=200+20 ( OU SEJA X=300 Y=220)
+        desenhaCirculo(x, y, 10, 'red');//X=300, Y=200 ( OU SEJA X=300 Y=200)
+        desenhaCirculo(x, y-20, 10, 'yellow');//X=300, Y=200-20 ( OU SEJA X=300 Y=180)
+		
+        desenhaCirculo(x-20, y, 10, 'orange');//X=300-20, Y=200 ( OU SEJA X=280 Y=200)
+        desenhaCirculo(x+20, y, 10, 'black');//X=300+20, Y=200 ( OU SEJA X=320 Y=200)
+    }
+
+    desenhaFlor(300, 200);//chamando a funçao e passando em seu PARAMETRO() o VALOR de X Y, X=300,Y=200
+	//OBS:ISSO E FEITO PORQUE OBSERVE QUE AS CORDENADAS ALMETAM OU DIMIUEM DE 20 EM 20,SENDO ASSIM UMA "CONTA" E FEITA DENTRO DO PARAMETRO DA FUNÇAO DESENHA CIRCULO
+
+</script>
+
+
+
+
+<canvas width="600" height="400"></canvas> <!-- 2-Desenha quadrados em forma de fraçao--
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+
+function desenhaQuadrado(x, y, tamanho1,tamanho2 ,cor) {
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, tamanho1,tamanho2);
+		
+		pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, tamanho1,tamanho2);
+    }	
+
+
+ function desenhaTexto(texto, x , y) {
+        pincel.font='20px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+
+    desenhaTexto("Qual é a fração?", 50, 30);// chamando a function/funçao DESENHA TEXTO executando suas açoes,e passando em seu parametro os valores de :frase,e as cordenadas x,y ( ou seja frase= qual e fraçao x=50 y=50)
+
+    desenhaQuadrado(50, 50, 100,100, 'green');// chamando a funçao DESENHA QUADRADO  executando suas acoes,e passando em seu parametro os valores de:X,Y,tamanho1,tamnho2,e cor (ou seja x=50 y=50  tamnho1=50 tamnaho2=50 cor=green)
+    desenhaQuadrado(150, 50, 100,100, 'green');
+    desenhaQuadrado(250, 50, 100,100, 'green');
+    desenhaQuadrado(350, 50, 100,100, 'white');
+//obs:observe que a cada cham ada da function/funçao DESENHA QUADRADO,a cordenada X/largura/lado se move de 100 em 100,ou seja o quadraro se move foramndo um ao lado do outro
+//isso acontece porque o quadraro tem tamanho de 100x100,ou seja onde termina um quadraro comeca outroa ao seu lado(eixo/cordenada x)
+ex:quadrado começa na cordenada 50,se ele tem 100 de tamnaho,vai terminar na cordenada 150,de 150,ele vai terminar em 250 e etc...
+</script>
+
+
+
+
+
+
+
+<canvas width="700" height="500"></canvas><!-- 2-Desenha quadrados em forma de fraçao OUTRA FORMA DE FAZER--
+
+<script>
+
+    function desenhaQuadrado(x, y, tamanho, cor) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle=cor;
+        pincel.fillRect(x,y, tamanho, tamanho);
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, tamanho, tamanho);
+    }
+
+    function desenhaTexto(texto, x , y) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.font='20px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+
+
+    desenhaTexto("Qual é a fração?", 50, 30);
+
+    var y = 50;
+    desenhaQuadrado(50, y, 100, 'green');
+    desenhaQuadrado(150, y, 100, 'green');
+    desenhaQuadrado(250, y, 100, 'green');
+    desenhaQuadrado(350, y, 100, 'white');
+
+</script>
+
+
+
+
+<canvas width="600" height="400"></canvas> <!--Desenha dois graficos--
+
+<script>
+
+    var tela = document.querySelector('canvas');//mostrando o canvas com tammanho cor etc
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+	
+	
+   var serie2015 = [50, 25, 20, 5];//array com posiçoes dos anos nos graficos 
+   var serie2016 = [65, 20, 13, 2];//array com posiçoes dos anos nos graficos 
+   var cores = ['blue', 'green', 'yellow', 'red'];// array com cores do grafico
+
+function desenhaRetangulo(x, y, largura,altura ,cor) { // desenhando o retangulo que vai formar a barra/grafico
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, largura,altura);
+		
+		pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, largura,altura);
+    }	
+
+
+ function desenhaTexto( x , y,texto) { //escrevendo texto da barra/grafico
+        pincel.font='10px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+
+
+function desenhaBarra(x, y, serieXeY, cores, texto) { // desenhando barra/grafico com todos os elementos
+
+        desenhaTexto(x, y - 10, texto);
+
+        var somaAltura = 0;
+        for (var i = 0; i < serieXeY.length; i++) {
+            var altura = serieXeY[i];
+            desenhaRetangulo(x, y + somaAltura, 50, altura, cores[i]);
+            somaAltura = somaAltura + altura;
+        }
+    }
+
+desenhaBarra(50, 50, serie2015, cores, '2015');// chamando a funçao com a açao de desenhar a barra,// Ao executar o corpo dessa função, o parâmetro "serie" estará "preenchido" com a variável "serie2015"
+desenhaBarra(150, 50, serie2016, cores, '2016');// Ao executar o corpo dessa função, o parâmetro "serie" estará "preenchido" com a variável "serie2016"
+
+
+
+
+
+
+</script>
+
+
+
+
+<canvas width="600" height="400"></canvas> <!--Desenha dois graficos OUTRA FORMA DE FAZER--
+
+<script>
+
+    function desenhaRetangulo(x, y, largura, altura, cor) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle=cor;
+        pincel.fillRect(x,y, largura, altura);
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, largura, altura);
+    }
+
+    function desenhaTexto(x , y, texto) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.font='15px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+
+    function desenhaBarra(x, y, serie, cores, texto) {
+
+        desenhaTexto(x, y - 10, texto);
+
+        var somaAltura = 0;
+        for (var i = 0; i < serie.length; i++) {
+            var altura = serie[i];
+            desenhaRetangulo(x, y + somaAltura, 50, altura, cores[i]);
+            somaAltura = somaAltura + altura;
+        }
+    }
+
+    var cores = ['blue','green','yellow', 'red'];
+    var serie2015 = [50,25,20,5];
+    var serie2016 = [65,20,13,2];
+
+    desenhaBarra(50, 50, serie2015, cores, '2015');
+    desenhaBarra(150, 50, serie2016, cores, '2016');
+
+</script>
+
+
+
+
+
+<canvas width="600" height="400"></canvas><!-- Desenha um esquadro --
+
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle="black";
+    pincel.beginPath();
+    pincel.moveTo(50, 50);
+    pincel.lineTo(50, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+    pincel.fillStyle="white";
+    pincel.beginPath();
+    pincel.moveTo(100, 175);
+    pincel.lineTo(100, 350);
+    pincel.lineTo(275, 350);
+    pincel.fill();
+
+</script>
+
+
+
+
+
+<canvas width="600" height="400"></canvas><!-- Desenha um esquadro OUTRA FORMA DE FAZER --
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    function desenhaEsquadro(xa, ya, xc, yc, cor) {
+        pincel.fillStyle = cor
+        pincel.beginPath();
+        pincel.moveTo(xa, ya);
+        pincel.lineTo(xa, yc);
+        pincel.lineTo(xc, yc);
+        pincel.fill();
+
+        pincel.fillStyle = 'white'
+        pincel.beginPath();
+        pincel.moveTo((6*xa + xc)/7, (9*ya + 5*yc)/14);
+        pincel.lineTo((6*xa + xc)/7, (ya + 6*yc)/7);
+        pincel.lineTo((5*xa + 9*xc)/14, (ya + 6*yc)/7);
+        pincel.fill();
+
+}
+
+    desenhaEsquadro(50, 50, 400, 400, 'black');
+
+</script>
+
+
+
+
+
+
+<canvas width="600" height="400"></canvas> <!--desenha bolinhas de acordo com o clique--
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y);
+    }
+
+function mudaCor(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y);
+    }
+
+
+
+
+
+    tela.onclick = desenhaCirculo;
+     tela.oncontextmenu. 
+    function mudaCor() {
+
+        alert('Funcionou!');
+        return false;
+    }
+
+    tela.oncontextmenu = mudaCor;
+
+</script>
+
+-->
+
+
+<canvas width="600" height="400"></canvas><!--desenha bolinhas de acordo com o clique OUTRA FORMA DE FAZER-->
+
+<script>
+    var tela = document.querySelector('canvas');//tcahamada do canvas e tal 
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var cores = ['blue', 'red', 'green']//variavel com array com as cores do clique
+    var indiceCorAtual = 0; // variavel que futuramente ira vai pecorrer todo array cores,OBS: começa com blue,( ou seja,blue=0 red=1 green=2)
+
+    function desenhaCirculo(evento) {// funcao para desenhar uma bolinha,e recebe no seu parametro() um evento/acao
+
+        var x = evento.pageX - tela.offsetLeft;//capiturando posiçao do clique
+        var y = evento.pageY - tela.offsetTop;
+        pincel.fillStyle = cores[indiceCorAtual];// IMPORTANTE aqui dizemos que as cores das bolinhas ou seja (ARRAY CORES) serao correspondentes ao (VARIAVEL INDICE ATUAL DA COR)
+//NO PRIMEIRO MOMENTO ARRAY CORES RECEBERA INDICE ATAUL DA COR QUE E 0.		
+//POREM MAIS PARA FRENTE ARRAY CORES: (BLUE,RED,GREEN ), VAI RECEBER FUTURAMNETE (INDICE DE COR ATUAL BLUE=0 RED=1 GREEN=2)
+	   pincel.beginPath();//começando o caminho
+        pincel.arc(x, y, 10, 0, 2 * 3.14);//tamanho/poisçao e etc da bolinha
+        pincel.fill();//preenche a bolinha com a cor
+        console.log(x + ',' + y);// serve para mostrar algo no console
+
+    }
+
+    tela.onclick = desenhaCirculo;//atribuindo o CLIQUE da TELA/CANVAS a FUNÇAO DESENHA CIRCULO,ou seja a funçao desenha circulo sera executada quando acontecer o evento/acao de clicar na tela/canvas
+
+    function mudaCor() {// criando a funçao MUDA COR
+
+        indiceCorAtual++;//INDICE COR ATUAL++ OU SEJA atribua mais um/rode mais uma vez/conte mais uma vez EX:INDICE COR ATUAL=0,INDICE COR ATUAL=1,INDICE COR ATUAL=2
+
+        if(indiceCorAtual >= cores.length) {++;//IF/SE array INDICE COR ATUAL for MAIOR OU IGUAL >= a LARGURA do array CORES (ou seja CORES.LENGTH)
+	//IMPORTANTE,aqui acontece a magica,e aqui que nosso array INDICE COR ATUAL(0) começa a pecorrer as cores do array CORES(blue,red,green)
+    /// OBS::LENGTH/COMPRIMENTO. ELE E USADO PARA SABER O TAMANHO DO NOSSO ARRAY, OU SEJA ELE "CONTA" QUANTOS ELEMENTOS TEM DENTRO DO ARRAY,NO CASO NOSSO ARRAY TEM 3 ELEMENTOS,PODERIAMOS DIGITAR 3 AO INVES DE  cores.length,MAS E UMA BOA PRATICA USAR O LENGTH
+		 indiceCorAtual = 0; // aqui dissemos que INDICE COR ATUAL RECEBE 0,ou seja ele vai PECORRER todo o CORES.LENGTH e depois que pecorrer tudo,ou seja chegar em GREEN=3 ele vai VOLTAR para a primeira cor, AZUL=0
+        }
+
+       
+    
+
+    tela.oncontextmenu = mudaCor;//NOVIDADE aqui temos o ONCONTEXTMENU ele serve para ASSOCIAR A EXECUSSAO DE UMA FUNÇAO AO CLIQUE(do lado direito do mouse) E EXIBIR O MENU PADRAO DO CANVAS,porem aqui usaremos ele somente com a ideais do CLIQUE DO BOTAO DIREITO DO MOUSE,ou seja e parecio com o onclick.
+
+</script>
+
+
+<!--
+
+<canvas width="600" height="400"></canvas><!--desenha bolinhas de acordo com o clique fica grande--
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        var raio = 10;
+
+        console.log(x + ',' + y);
+
+        if (evento.shiftKey) {
+
+           raio = raio + 20; // raio agora passa a valer 30!
+        }
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * 3.14);
+        pincel.fill();
+
+    }
+
+    tela.onclick = desenhaCirculo;
+
+</script>
+
+
+
+<canvas width="600" height="400"></canvas><!--desenha bolinhas de acordo com o clique fica grande--
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var raio = 10;
+
+    function desenhaCirculo(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        console.log(x + ',' + y);
+
+        if (evento.shiftKey) {
+
+           raio = raio + 10;
+        }
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * 3.14);
+        pincel.fill();
+
+    }
+
+    tela.onclick = desenhaCirculo;
+
+</script>

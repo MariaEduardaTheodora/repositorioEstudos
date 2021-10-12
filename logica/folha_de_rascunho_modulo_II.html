@@ -1,0 +1,111 @@
+<!--
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'Lightgrey';
+    pincel.fillRect (0,0,600,400);
+
+    function desenhaCirculo(x, y, raio){
+
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI );
+        pincel.fill();
+    }
+
+    function limpaTela(){
+
+        pincel.clearRect(0,0,600,400);
+    }
+
+    var x = 0;
+    var sentido = true;
+
+
+    function atualizaTelaDireita(){
+        if (x < 600 && sentido == true){
+
+        limpaTela();
+        desenhaCirculo(x,20,10);
+        x++;
+        if (x == 600){
+
+            sentido = false;    
+        }
+    }
+    } 
+
+    function atualizaTelaEsquerda(){
+        if (x > 0 && sentido == false ){
+        limpaTela();
+        desenhaCirculo(x,20,10);
+        x--;
+        if ( x == 0 ){
+
+            sentido = true;    
+        }
+        }
+    }
+
+    setInterval(atualizaTelaDireita, 10);
+
+    setInterval(atualizaTelaEsquerda, 10);
+
+</script>
+
+-->
+
+
+
+
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas'); //canvas
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio) { //fuçao que desenha a bolinha
+
+        pincel.fillStyle = 'blue';
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function limpaTela() { //funçao que limpa tela
+
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    var x = 20; // varivel que recebe a cordenada inicial da bolinha que e 20
+
+    var sentido = 1; // varivel que recebe o sentido para onde a bolinha deve ir começa de 1( esquerda/frente) -1(direita/atras)
+
+    function atualizaTela() { // chamando funçao que atualiza tela
+
+        limpaTela(); //chamando funçao que limpa tela
+
+        if( x > 600) { // IF/SE x for MAIOR que 600(largura do canvas) faça
+            sentido = -1;// Variavel sentido MENOS 1 ( obs aqui a bolinha vai diminuir para a direita,ou seja vai voltar para tras)
+        } else if (x < 0) { //ELSE IF/SE NAO x MENOR que 0 faça
+            sentido = 1;//variavel sentido volta a ser 1(obs: aqui a bolinha vai aumentar para a esquerda,ou seja vai ir para frente)
+        } 
+
+        desenhaCirculo(x, 20, 10);// chamando funçao desenha circulo com seus parametros
+        x = x + sentido;// IMPORTANTE aqui a magica acontece para que a bolinha va de um lado para o outro, X=X( ou seja 20) + MAIS Sentido(ou seja 1) sendo assim toda vez que a funçao desenha circulo for chamada( que no caso e de um em um segundo) sera SOMADO + MAIS 1 na variavel X .
+//(ou seja X=20 + SENTIDO=1 == X=21 depois  X=21 + SENTIDO=1 == X=2 depois  X=22 + SENTIDO=1 == X=23 etc..(isso dara a impresao que a bolinha esta indo para a esquerda/frente)isso acontecera ate X ser MAIOR que 600 quando isso acontecer SENTIDO passa a contar MENOS -1 ( ou seja X=600 - SENTIDO=1 == X=599 depois  X=599 - SENTIDO=1 == X=598 depois  X=598 - SENTIDO=1 == X=598 etc..) ( isso dara a impresao que bolinha esta indo para a direita/atras)
+ 
+    }
+
+    setInterval(atualizaTela, 10);// aqui de quanto em quanto tempo essa funçao vai ser chamada para dar a impresao que a bolinha esta se movendo no caso de um em um segundo ou seja 10
+
+</script>

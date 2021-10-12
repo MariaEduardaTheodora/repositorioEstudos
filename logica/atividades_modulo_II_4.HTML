@@ -1,0 +1,81 @@
+<canvas width="600" height="400"></canvas> <!--TREINO 1-->
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio) {// Criamos uma funcao/function chamada DESENHA CIRCULO, que desenha um circulo/esfera,e que recebe como parametro() X Y e o raio
+
+        pincel.fillStyle = 'blue';// cor da bola/esfera blue/azul
+        pincel.beginPath();//aqui dizemos que começamos a desenhar algo,com o BEGINPATH q e usado para indicarmos um novo caminho do pincel
+		//NOVIDADE MATH.PI faz a multiplicacao de PI ( OU SEJA VEZES/*3,14). EXEMPLO 0,2 * 3,14   /    0,2 * MATH.PI
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);// aqui passamos as "cordenadas"/parametros da bolinha/esfera,X=?,Y=?,RAIO=?,angulo inicial=0,agulo final=2 VEZES/* MATH.PI (ou seja  PI - 3,14)
+        pincel.fill();// aqui preenchemos a forma com a cor passsada no FILLSTYLE
+    }
+
+    desenhaCirculo(20, 20, 10);// aqui CHAMAMOS a FUNCTION/FUNCAO DESENHA CIRCULO e passamos os VALORES dos PARAMETROS() X recebe 20,  Y recebe 20   ,raio recebe 10
+
+</script>
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<canvas width="600" height="400"></canvas><!--TREINO 2-->
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio) {//// Criamos uma funcao/function chamada DESENHA CIRCULO, que desenha um circulo/esfera,e que recebe como parametro() X Y e o raio
+
+        pincel.fillStyle = 'blue';// cor da forma dizemos q e blue/azul
+        pincel.beginPath();//aqui dizemos que começamos a desenhar algo,ou seja começando um novo caminho com o pinel
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);// aqui passamos as "cordenadas"/parametros da bolinha/esfera,X=?,Y=?,RAIO=?,angulo inicial=0,agulo final=2 VEZES/* MATH.PI (ou seja  PI - 3,14)
+        pincel.fill();// aqui preenchemos a forma com a cor passada
+    }
+
+    function limpaTela() {// criamos uma function/funcao chamada LIMPA TELA,que tem como acao LIMPAR/APAGAR DA TELA uma bolinha/esfera apos ela ser feita ser feita
+    pincel.clearRect(0, 0, 600, 400);//NOVIDADE  CLEAR RECT/ pincel.clearRect(), usado para indicar  que ele deve limpar algo,e passamos em seu parametro as cordenadas X 0 ,Y 0 (ou seja o começo do canvas) e 400x600( ou seja tamanho do canvas)
+    }
+
+    var x = 20;// declaramos uma varivel X vai receber o valor 20
+	
+
+    function atualizaTela() {//criamos a function/funcao ATULIZA TELA,que tem como acao, a execucao das açoes que estao dentro da funcao LIMPA TELA,e tambem a execuçao das acoes de dentro de DESENHA CIRCULO
+
+    limpaTela();// chamamos a funçao LIMPA TELA() DENTRO da funçao ATUALIZA TELA() Ou seja sera apagado/limpado da tela a bolinha
+    desenhaCirculo(x, 20, 10);//// chamamos a funçao DESENHA CIRCULO() DENTRO da funçao ATUALIZA TELA() Ou seja sera sera desenhado uma bolinha OBS:passamos tambem os VALORES dos parametros() de DESENHA CIRCULO, X RECEBE=X ,Y RECEBE=20 ,RAIO RECEBE=10
+    x=x+1;// aqui dizemos que X "roda" mais uma vez,ou seja de 20 em 20, EX:::::::::: X20 + X20 == X40    X40 + X20 ==X60     X60 + X20 == X80 etc......
+	//Isso e feito para que a varivel X mude de posiçao,estão sendo desenhadas várias esferas sobrepostas. Para consertar isso, a cada chamada de tela, precisamos passar um novo valor de x, ou seja, incrementar x (lembrando de declarar a variável x com valor 20 antes):
+    }
+
+    setInterval(atualizaTela, 10);// NOVIDADE aqui utilizaremos a função SETINTERVAL, ela tem como acao fazer com que algo seja exibido com intervalos de tempo(de tempos em tempos).
+// Ela aceita receber em seu parâmetro,  funçãos que você deseje chamar de tempos em tempos 
+// E ela tabem recebe no seu parametro a quantidade de tempo que desejamos dar de intervalo em milissegundos. 
+//aqui Utilizamos 1000 milissegundos(ou seja 10) que equivalem a 1 segundo:
+//RESUMINDO SETINTERVAL RECEBE E EXECUTA A ACAO DA FUNÇAO ATUALIZA TELA DE 1 EM UM SEGUNDO.
+//IMPORTANTE OBSERVE!!! QUANDO SE QUER PASSAR UMA FUNÇAO COMO PARAMETRO,COM INTUIDO DE ATRIBUIÇAO E NAO DE INVOCACAO NAO SE USA O PARENTESSES().OU SEJA SO USE PARENTESES DA FUNÇAO SE QUISER CHAMAR-LA 
+//EXEMPLO CORRETO setInterval(atualizaTela, 10);
+//EXEMPLO INCORRETO setInterval(atualizaTela(), 10);
+</script>
